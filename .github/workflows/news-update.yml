@@ -1,0 +1,46 @@
+name: news-update
+
+# The ONLY recurring job. Refreshes the point-in-time news log and commits it.
+# A local cron would die with the ephemeral dev container, so recurrence lives
+# here on GitHub's infrastructure. Fundamentals are NOT re-researched on a
+# schedule by design (see brain/README.md).
+
+on:
+  schedule:
+    # 11:00 UTC on weekdays — before the US market open (13:30 UTC).
+    - cron: "0 11 * * 1-5"
+  workflow_dispatch:        # allow manual runs from the Actions tab
+
+permissions:
+  contents: write           # needed to commit the refreshed news log
+
+jobs:
+  refresh-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Refresh news log
+        run: python scripts/update_news.py
+
+      - name: Commit updated news log
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add brain/news
+          if git diff --cached --quiet; then
+            echo "No news changes to commit."
+          else
+            git commit -m "chore(news): refresh point-in-time sentiment log"
+            git push
+          fi

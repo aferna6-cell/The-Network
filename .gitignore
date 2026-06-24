@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Data + model artifacts (regenerated, not source)
+data/
+models/
+*.joblib
+*.pkl
+
+# Reports
+reports/
+
+# Live loop state + personal financial data (NEVER commit real holdings)
+state/
+portfolio.json
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

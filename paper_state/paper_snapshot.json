@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-06-24T14:57:34.477352+00:00",
+  "inception_date": "2026-06-24",
+  "starting_equity": 500.0,
+  "equity": 499.6535,
+  "cash": 4.653500000000008,
+  "total_return": -0.0006929999999999437,
+  "benchmark_equity": 500.0,
+  "benchmark_return": 0.0,
+  "vs_benchmark": -0.3464999999999918,
+  "holdings": [
+    {
+      "ticker": "AAPL",
+      "shares": 0.3334,
+      "price": 296.97,
+      "value": 99.0,
+      "cost_basis": 296.97,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "CRM",
+      "shares": 0.6405,
+      "price": 154.56,
+      "value": 99.0,
+      "cost_basis": 154.56,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "CVX",
+      "shares": 0.5785,
+      "price": 171.12,
+      "value": 99.0,
+      "cost_basis": 171.12,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "NFLX",
+      "shares": 1.3667,
+      "price": 72.44,
+      "value": 99.0,
+      "cost_basis": 72.44,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "XOM",
+      "shares": 0.7289,
+      "price": 135.81,
+      "value": 99.0,
+      "cost_basis": 135.81,
+      "unrealized_pct": 0.0
+    }
+  ],
+  "trades_this_tick": [
+    {
+      "ticker": "NFLX",
+      "action": "BUY",
+      "shares": 1.3667,
+      "price": 72.44
+    },
+    {
+      "ticker": "XOM",
+      "action": "BUY",
+      "shares": 0.7289,
+      "price": 135.81
+    },
+    {
+      "ticker": "CRM",
+      "action": "BUY",
+      "shares": 0.6405,
+      "price": 154.56
+    },
+    {
+      "ticker": "AAPL",
+      "action": "BUY",
+      "shares": 0.3334,
+      "price": 296.97
+    },
+    {
+      "ticker": "CVX",
+      "action": "BUY",
+      "shares": 0.5785,
+      "price": 171.12
+    }
+  ],
+  "last_rebalance": "2026-06-24T14:57:34.477352+00:00"
+}

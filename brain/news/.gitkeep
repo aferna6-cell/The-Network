@@ -1,0 +1,2 @@
+# Per-ticker news logs (<TICKER>.csv) are written here by scripts/update_news.py.
+# This file keeps the directory under version control when no logs exist yet.
