@@ -52,6 +52,44 @@ st.warning(
     icon="⚠️",
 )
 
+# --- Paper-trading demo (the headline forward test) ------------------------
+st.header("🧪 Paper-trading demo — $500 fake money, model-managed")
+_pp = config.PAPER_SNAPSHOT_PATH
+if not _pp.exists():
+    st.info("No paper account yet. Run `python scripts/paper_run.py --reset` to "
+            "fund it with $500 and let the model start trading.")
+else:
+    ps = json.loads(_pp.read_text(encoding="utf-8"))
+    p1, p2, p3, p4 = st.columns(4)
+    p1.metric("Account equity", f"${ps['equity']:,.2f}", f"{ps['total_return']:+.2%}")
+    p2.metric("SPY $500 benchmark", f"${ps['benchmark_equity']:,.2f}",
+              f"{ps['benchmark_return']:+.2%}")
+    p3.metric("vs SPY", f"${ps['vs_benchmark']:+,.2f}",
+              help="Account equity minus the same $500 in SPY. Positive = beating the index.")
+    p4.metric("Cash", f"${ps['cash']:,.2f}")
+    st.caption(f"Since {ps['inception_date']} · last rebalance "
+               f"{ps.get('last_rebalance', '—')}")
+
+    if config.PAPER_EQUITY_PATH.exists():
+        eq = pd.read_csv(config.PAPER_EQUITY_PATH, parse_dates=["timestamp"])
+        if len(eq) > 1:
+            eq = eq.set_index("timestamp").rename(
+                columns={"equity": "Model", "benchmark_equity": "SPY $500"})
+            st.line_chart(eq[["Model", "SPY $500"]])
+        else:
+            st.caption("Equity curve appears once there is more than one data point.")
+
+    if ps.get("holdings"):
+        st.markdown("**Current holdings**")
+        st.dataframe(pd.DataFrame(ps["holdings"]), use_container_width=True,
+                     hide_index=True)
+    if ps.get("trades_this_tick"):
+        st.markdown("**Latest trades**")
+        st.dataframe(pd.DataFrame(ps["trades_this_tick"]),
+                     use_container_width=True, hide_index=True)
+
+st.divider()
+
 snap = _load_snapshot()
 if snap is None:
     st.info("No recommendations yet. Run `python scripts/recommend_xs.py` "

@@ -114,3 +114,13 @@ XS_MODEL_PATH = MODELS_DIR / "xs_model.joblib"
 # differ from the single-stock up/down ledger).
 XS_LEDGER_PATH = STATE_DIR / "xs_ledger.csv"
 XS_RECOMMENDATIONS_PATH = STATE_DIR / "xs_recommendations.json"
+
+# --- Paper-trading demo (fake money; the model manages it autonomously) ----
+PAPER_START_CASH = 500.0          # fake dollars to hand the model
+PAPER_TOP_K = 5                   # hold the top-K ranked names, equal weight
+PAPER_REBALANCE_DAYS = 30         # calendar days between rebalances (~monthly)
+PAPER_INVEST_FRACTION = 0.99      # leave a sliver of cash for trading costs
+PAPER_BENCHMARK = "SPY"           # what to compare against (same $ buy & hold)
+PAPER_ACCOUNT_PATH = STATE_DIR / "paper_account.json"
+PAPER_EQUITY_PATH = STATE_DIR / "paper_equity.csv"
+PAPER_SNAPSHOT_PATH = STATE_DIR / "paper_snapshot.json"
