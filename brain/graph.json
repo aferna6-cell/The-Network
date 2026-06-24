@@ -1,0 +1,262 @@
+{
+  "nodes": [
+    {
+      "id": "backtesting-pitfalls",
+      "title": "Backtesting Pitfalls"
+    },
+    {
+      "id": "data-leakage",
+      "title": "Data Leakage"
+    },
+    {
+      "id": "efficient-market-hypothesis",
+      "title": "Efficient Market Hypothesis"
+    },
+    {
+      "id": "feature-engineering",
+      "title": "Feature Engineering"
+    },
+    {
+      "id": "gradient-boosting",
+      "title": "Gradient Boosting"
+    },
+    {
+      "id": "neural-networks",
+      "title": "Neural Networks"
+    },
+    {
+      "id": "news-sentiment",
+      "title": "News Sentiment"
+    },
+    {
+      "id": "risk-metrics",
+      "title": "Risk Metrics"
+    },
+    {
+      "id": "technical-indicators",
+      "title": "Technical Indicators"
+    },
+    {
+      "id": "walk-forward-validation",
+      "title": "Walk-Forward Validation"
+    }
+  ],
+  "edges": [
+    {
+      "source": "backtesting-pitfalls",
+      "target": "data-leakage"
+    },
+    {
+      "source": "backtesting-pitfalls",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "backtesting-pitfalls",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "backtesting-pitfalls",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "backtesting-pitfalls",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "data-leakage",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "data-leakage",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "data-leakage",
+      "target": "feature-engineering"
+    },
+    {
+      "source": "data-leakage",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "data-leakage",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "data-leakage",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "data-leakage"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "feature-engineering"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "news-sentiment"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "efficient-market-hypothesis",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "feature-engineering",
+      "target": "data-leakage"
+    },
+    {
+      "source": "feature-engineering",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "feature-engineering",
+      "target": "neural-networks"
+    },
+    {
+      "source": "feature-engineering",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "data-leakage"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "feature-engineering"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "neural-networks"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "gradient-boosting",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "neural-networks",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "neural-networks",
+      "target": "data-leakage"
+    },
+    {
+      "source": "neural-networks",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "neural-networks",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "neural-networks",
+      "target": "news-sentiment"
+    },
+    {
+      "source": "neural-networks",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "neural-networks",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "data-leakage"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "feature-engineering"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "neural-networks"
+    },
+    {
+      "source": "news-sentiment",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "risk-metrics",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "risk-metrics",
+      "target": "data-leakage"
+    },
+    {
+      "source": "risk-metrics",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "risk-metrics",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "technical-indicators",
+      "target": "data-leakage"
+    },
+    {
+      "source": "technical-indicators",
+      "target": "feature-engineering"
+    },
+    {
+      "source": "technical-indicators",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "walk-forward-validation",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "walk-forward-validation",
+      "target": "data-leakage"
+    },
+    {
+      "source": "walk-forward-validation",
+      "target": "gradient-boosting"
+    },
+    {
+      "source": "walk-forward-validation",
+      "target": "risk-metrics"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Core data + ML
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+joblib>=1.3
+
+# Data fetching (raw HTTP — no broker/library lock-in)
+requests>=2.31
+
+# News sentiment (lexicon-based, no model download)
+vaderSentiment>=3.3
+
+# Tests
+pytest>=7.4
+
+# NOTE: RSS is parsed with the stdlib (xml.etree) — feedparser intentionally
+# avoided because its sgmllib3k dependency does not build on modern setuptools.
+# NOTE: yfinance is intentionally NOT used. See src/data.py for why (the raw
+# Yahoo chart JSON API is more robust behind proxies / CA bundles).
