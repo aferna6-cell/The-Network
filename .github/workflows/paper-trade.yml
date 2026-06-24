@@ -1,0 +1,55 @@
+name: paper-trade
+
+# Durable "cron" for the $500 paper-trading demo. Runs on GitHub's infra (this
+# repo's dev container is ephemeral and cannot host a real cron), ticks the
+# account once per trading day, and commits the updated equity curve so the
+# track record accumulates untended. Places no real trades.
+
+on:
+  schedule:
+    # 21:23 UTC on weekdays — shortly after the US market close (20:00–21:00 UTC).
+    - cron: "23 21 * * 1-5"
+  workflow_dispatch:        # manual run from the Actions tab
+
+permissions:
+  contents: write           # to commit the updated paper_state/
+
+concurrency:
+  group: paper-trade        # never overlap two ticks
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Tick the paper account
+        run: |
+          if [ -f paper_state/paper_account.json ]; then
+            python scripts/paper_run.py --once
+          else
+            python scripts/paper_run.py --reset
+          fi
+
+      - name: Commit the updated equity curve
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add paper_state
+          if git diff --cached --quiet; then
+            echo "No paper-state change to commit."
+          else
+            git commit -m "chore(paper): daily tick — update equity curve"
+            git push
+          fi

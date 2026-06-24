@@ -26,11 +26,32 @@ loop) remains available but the cross-sectional pair above is the current path.
 - **A volume mounted at `state/`** — so the prediction ledger survives restarts.
   Without persistence the model can never measure its own live accuracy.
 
-## Option A — Railway / Render / Fly.io (managed, ~$5/mo)
-1. Connect the repo; these platforms detect the `Dockerfile`.
-2. Add a **persistent volume** mounted at `/app/state`.
-3. Upload `portfolio.json` as a secret file or mount it at `/app/portfolio.json`.
-4. Deploy. Logs show one line per tick.
+## The $500 paper demo runs WITHOUT a host
+The simplest "let it run" is already wired: the **`paper-trade` GitHub Action**
+ticks the paper account every trading day and commits the equity curve to
+`paper_state/` in the repo — no server, nothing for you to keep alive. View the
+curve any time in `paper_state/paper_equity.csv` or the dashboard. Enable it once
+in the repo's **Actions** tab (scheduled workflows need a manual first enable).
+
+A persistent host is only needed if you want the **live dashboard** or
+**intraday** marks. Options below.
+
+## Option A — Railway (managed, ~$5/mo) — recommended for the live dashboard
+Railway builds the `Dockerfile` automatically. Run the demo as two services off
+the same repo:
+
+1. **Service 1 — paper loop.** Override the start command to
+   `python scripts/paper_run.py` and add a **volume mounted at `/app/paper_state`**
+   (so the curve persists). This keeps the account ticking intraday.
+2. **Service 2 — dashboard.** Start command
+   `streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0`,
+   mounted on the **same volume** `/app/paper_state`, exposed publicly. That's the
+   live web view of the account.
+3. (Optional) For the recommender loop too, a third service running
+   `python scripts/run_live_xs.py` sharing `/app/state`.
+
+Render and Fly.io work the same way (detect the `Dockerfile`, add a volume, set
+the start command per service).
 
 ## Option B — Small VM (DigitalOcean/EC2/Hetzner, ~$4–6/mo)
 ```bash

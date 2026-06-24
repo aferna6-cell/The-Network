@@ -1,0 +1,30 @@
+{
+  "cash": 4.653500000000008,
+  "starting_equity": 500.0,
+  "inception_date": "2026-06-24",
+  "positions": {
+    "NFLX": {
+      "shares": 1.366742596810934,
+      "cost_basis": 72.435
+    },
+    "XOM": {
+      "shares": 0.7289327393881383,
+      "cost_basis": 135.815
+    },
+    "CRM": {
+      "shares": 0.6405486719937886,
+      "cost_basis": 154.555
+    },
+    "AAPL": {
+      "shares": 0.3333670067683604,
+      "cost_basis": 296.97
+    },
+    "CVX": {
+      "shares": 0.5785413744740533,
+      "cost_basis": 171.12
+    }
+  },
+  "last_rebalance": "2026-06-24T14:57:34.477352+00:00",
+  "benchmark_ticker": "SPY",
+  "benchmark_shares": 0.676544212164265
+}

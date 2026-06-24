@@ -121,6 +121,10 @@ PAPER_TOP_K = 5                   # hold the top-K ranked names, equal weight
 PAPER_REBALANCE_DAYS = 30         # calendar days between rebalances (~monthly)
 PAPER_INVEST_FRACTION = 0.99      # leave a sliver of cash for trading costs
 PAPER_BENCHMARK = "SPY"           # what to compare against (same $ buy & hold)
-PAPER_ACCOUNT_PATH = STATE_DIR / "paper_account.json"
-PAPER_EQUITY_PATH = STATE_DIR / "paper_equity.csv"
-PAPER_SNAPSHOT_PATH = STATE_DIR / "paper_snapshot.json"
+# Paper-demo state lives in a COMMITTED folder (not gitignored state/) so the
+# scheduled GitHub Action can read the prior run and persist the equity curve in
+# the repo. It is fake money — committing the curve is a feature, not a leak.
+PAPER_STATE_DIR = ROOT / "paper_state"
+PAPER_ACCOUNT_PATH = PAPER_STATE_DIR / "paper_account.json"
+PAPER_EQUITY_PATH = PAPER_STATE_DIR / "paper_equity.csv"
+PAPER_SNAPSHOT_PATH = PAPER_STATE_DIR / "paper_snapshot.json"
