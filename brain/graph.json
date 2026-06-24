@@ -5,6 +5,10 @@
       "title": "Backtesting Pitfalls"
     },
     {
+      "id": "cross-sectional-momentum",
+      "title": "Cross-Sectional Momentum"
+    },
+    {
       "id": "data-leakage",
       "title": "Data Leakage"
     },
@@ -64,6 +68,34 @@
     },
     {
       "source": "backtesting-pitfalls",
+      "target": "walk-forward-validation"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "data-leakage"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "news-sentiment"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "risk-metrics"
+    },
+    {
+      "source": "cross-sectional-momentum",
+      "target": "technical-indicators"
+    },
+    {
+      "source": "cross-sectional-momentum",
       "target": "walk-forward-validation"
     },
     {
