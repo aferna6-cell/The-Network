@@ -60,6 +60,29 @@ def test_rebalance_rotates_out_old_names():
     assert "F" in a.positions
 
 
+def test_record_trades_appends_log(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "PAPER_TRADES_PATH", tmp_path / "trades.csv")
+    now = datetime(2026, 6, 24, tzinfo=timezone.utc)
+    trades = [
+        {"ticker": "AAPL", "action": "BUY", "shares": 1.5, "price": 200.0},
+        {"ticker": "XOM", "action": "SELL", "shares": 0.7, "price": 100.0},
+    ]
+    paper_runtime._record_trades(now, trades)
+    paper_runtime._record_trades(now, trades)        # appends, keeps one header
+    paper_runtime._record_trades(now, [])            # no-op on empty
+
+    lines = (tmp_path / "trades.csv").read_text().strip().splitlines()
+    assert lines[0] == "timestamp,action,ticker,shares,price,value"
+    assert len(lines) == 5                           # header + 2 + 2
+    assert ",BUY,AAPL,1.5,200.0,300.0" in lines[1]   # value = shares * price
+
+
+def test_record_trades_skips_when_no_log_dir_needed(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "PAPER_TRADES_PATH", tmp_path / "trades.csv")
+    paper_runtime._record_trades(datetime.now(timezone.utc), [])
+    assert not (tmp_path / "trades.csv").exists()
+
+
 def test_persistence_round_trip(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "PAPER_ACCOUNT_PATH", tmp_path / "acct.json")
     a = _acct()
