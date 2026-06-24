@@ -26,6 +26,29 @@ inputs, neural nets are the wrong tool:
 - Fusing heterogeneous inputs (price + text embeddings from [[News Sentiment]]).
 - Only after the simple baseline is beaten honestly under [[Walk-Forward Validation]].
 
+## The honest experiments now live here (optional)
+
+Rather than argue about it, the repo now *measures* it. Both are optional —
+they need `requirements-deep.txt` (torch + transformers) and run under the exact
+same leak-free walk-forward and cost model as the tree, so the comparison is
+fair:
+
+- **Sequence model** (`src/deep.py`): an LSTM fed the *same* features as the
+  tree, only as an ordered `SEQ_WINDOW`-day window. `head_to_head()` scores it
+  against the tree on a shared out-of-sample window.
+  Run: `python scripts/deep_experiment.py`.
+- **FinBERT sentiment** (`src/finbert.py` + `src/sentiment_features.py`):
+  finance-tuned transformer scores headlines; a point-in-time trailing mean
+  becomes a model feature. `scripts/sentiment_experiment.py --finbert` A/Bs it
+  against the price-only baseline.
+
+The prior stands until the numbers overturn it: on daily bars, after costs, the
+tree is expected to win and the sentiment feature only matters once enough
+**forward** news accumulates (today's log is weeks deep, not years). The
+experiments exist to disprove the prior honestly, not to dress the repo in deep
+learning. See [[Data Leakage]] — the scaler is fit on train rows only and a
+prediction window for day *t* uses only rows ≤ *t*.
+
 ## Pitfall
 
 A net will happily memorise leaked future information and post a fantastic

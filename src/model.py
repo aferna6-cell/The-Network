@@ -48,14 +48,22 @@ def train_model(
     horizon: int = config.TARGET_HORIZON,
     threshold: float = config.TARGET_THRESHOLD,
     params: dict | None = None,
+    feature_columns: list[str] | None = None,
 ) -> TrainedModel:
-    """Fit a classifier on the given feature matrix and labels."""
+    """Fit a classifier on the given feature matrix and labels.
+
+    `feature_columns` defaults to the canonical FEATURE_COLUMNS. Pass an
+    extended list (e.g. baseline features + a sentiment column) to test whether
+    an extra signal earns its keep — the model records exactly which columns it
+    trained on so prediction uses the same set.
+    """
+    cols = list(feature_columns) if feature_columns is not None else list(FEATURE_COLUMNS)
     params = {**config.MODEL_PARAMS, **(params or {})}
     estimator = HistGradientBoostingClassifier(**params)
-    estimator.fit(X[FEATURE_COLUMNS], y)
+    estimator.fit(X[cols], y)
     return TrainedModel(
         estimator=estimator,
-        feature_columns=list(FEATURE_COLUMNS),
+        feature_columns=cols,
         horizon=horizon,
         threshold=threshold,
         n_train_rows=len(X),

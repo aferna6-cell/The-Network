@@ -36,11 +36,15 @@ def walk_forward_predict(
     initial_train_fraction: float = config.INITIAL_TRAIN_FRACTION,
     retrain_every: int = config.RETRAIN_EVERY,
     min_train_rows: int = 100,
+    feature_columns: list[str] | None = None,
 ) -> pd.DataFrame:
     """Produce out-of-sample P(up) for every bar past the initial train window.
 
     Returns a frame indexed by date with columns: prob_up, target, fwd_return.
+    `feature_columns` defaults to FEATURE_COLUMNS; pass an extended list to
+    evaluate an added signal (e.g. news sentiment) under the same walk-forward.
     """
+    cols = list(feature_columns) if feature_columns is not None else list(FEATURE_COLUMNS)
     dataset = dataset.sort_index()
     n = len(dataset)
     initial = int(n * initial_train_fraction)
@@ -61,8 +65,8 @@ def walk_forward_predict(
             continue
 
         model = train_model(
-            train[FEATURE_COLUMNS], train["target"],
-            horizon=horizon, threshold=threshold,
+            train[cols], train["target"],
+            horizon=horizon, threshold=threshold, feature_columns=cols,
         )
         test = dataset.iloc[i:block_end]
         prob_up = model.predict_proba_up(test)
