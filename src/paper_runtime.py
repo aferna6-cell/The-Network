@@ -91,6 +91,26 @@ def _record_equity(now, equity, bench):
         w.writerow([now.isoformat(), round(equity, 4), round(bench, 4)])
 
 
+def _record_trades(now, trades: list[dict]) -> None:
+    """Append rebalance trades to a durable log so the dashboard can show history.
+
+    The snapshot only carries the *latest* tick's trades; this CSV accumulates
+    every buy/sell across the demo's life so "recent activity" survives ticks.
+    """
+    if not trades:
+        return
+    path = config.PAPER_TRADES_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    header = not path.exists()
+    with path.open("a", newline="") as f:
+        w = csv.writer(f)
+        if header:
+            w.writerow(["timestamp", "action", "ticker", "shares", "price", "value"])
+        for t in trades:
+            w.writerow([now.isoformat(), t["action"], t["ticker"],
+                        t["shares"], t["price"], round(t["shares"] * t["price"], 2)])
+
+
 def _due_to_rebalance(account: paper.PaperAccount, now: datetime) -> bool:
     if not account.positions or account.last_rebalance is None:
         return True
@@ -118,6 +138,7 @@ def run_once(*, retrain: bool = False, now: datetime | None = None) -> dict:
     equity = account.equity(prices)
     bench = account.benchmark_equity(prices)
     _record_equity(now, equity, bench)
+    _record_trades(now, trades)
     paper.save_account(account)
 
     snapshot = {

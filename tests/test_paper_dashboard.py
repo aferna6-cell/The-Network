@@ -63,6 +63,46 @@ def test_no_holdings_renders_all_cash():
     assert "All cash" in html
 
 
+def _multiday_equity():
+    # Two distinct calendar days so daily change is computable: +2 model, -1 SPY.
+    return pd.DataFrame({
+        "timestamp": pd.to_datetime([
+            "2026-06-24T14:00", "2026-06-24T21:00", "2026-06-25T21:00"]),
+        "equity": [500.0, 500.0, 502.0],
+        "benchmark_equity": [500.0, 500.0, 499.0],
+    })
+
+
+def test_daily_change_card_shows_day_over_day():
+    html = paper_dashboard.render_dashboard(_snapshot(), _multiday_equity())
+    assert "Today's gain / loss" in html
+    assert "$+2.00" in html          # 502 - 500 (prev day's close)
+    assert "SPY -0.20%" in html      # 499/500 - 1
+
+
+def test_daily_change_first_day_when_single_date():
+    html = paper_dashboard.render_dashboard(_snapshot(), _equity(n=1))
+    assert "first day" in html
+
+
+def test_recent_activity_uses_trade_log_when_present():
+    trades = pd.DataFrame({
+        "timestamp": ["2026-07-24T21:00:00+00:00"],
+        "action": ["SELL"], "ticker": ["NFLX"],
+        "shares": [1.3667], "price": [71.84], "value": [98.19],
+    })
+    html = paper_dashboard.render_dashboard(_snapshot(), _equity(), trades)
+    assert "Recent activity" in html
+    assert "SELL" in html and "NFLX" in html
+    assert "most recent trades" in html
+
+
+def test_recent_activity_falls_back_to_inception_buys():
+    html = paper_dashboard.render_dashboard(_snapshot(), _equity(), None)
+    assert "opening positions" in html
+    assert "BUY" in html and "AAPL" in html
+
+
 def test_build_writes_file(tmp_path, monkeypatch):
     import json
     import config

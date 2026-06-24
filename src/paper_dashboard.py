@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import html
 import json
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -31,6 +31,88 @@ def _days_since(inception: str) -> int:
         return max(0, (datetime.now(timezone.utc).date() - d0).days)
     except (TypeError, ValueError):
         return 0
+
+
+def _daily_change(eq: pd.DataFrame | None) -> dict | None:
+    """Day-over-day change for the model and the benchmark.
+
+    Compares the latest calendar day's closing equity to the previous day's,
+    so multiple ticks on the same day collapse to one honest daily number.
+    """
+    if eq is None or len(eq) < 2:
+        return None
+    df = eq.copy()
+    df["d"] = df["timestamp"].dt.date
+    by_day = df.groupby("d").last()
+    if len(by_day) < 2:
+        return None
+    cur, prev = by_day.iloc[-1], by_day.iloc[-2]
+
+    def chg(col: str) -> tuple[float, float]:
+        a = cur[col] - prev[col]
+        return a, (a / prev[col] if prev[col] else 0.0)
+
+    m_abs, m_pct = chg("equity")
+    b_abs, b_pct = chg("benchmark_equity")
+    return {"m_abs": m_abs, "m_pct": m_pct, "b_abs": b_abs, "b_pct": b_pct}
+
+
+def _next_rebalance(snapshot: dict) -> str:
+    """Best-effort date of the next monthly rebalance, for the activity note."""
+    anchor = snapshot.get("last_rebalance") or snapshot.get("inception_date")
+    try:
+        d = date.fromisoformat(str(anchor)[:10])
+        return (d + timedelta(days=config.PAPER_REBALANCE_DAYS)).isoformat()
+    except (TypeError, ValueError):
+        return "—"
+
+
+def _activity_section(trades: pd.DataFrame | None, snapshot: dict) -> str:
+    """Recent buys/sells from the durable log; fall back to the inception buys.
+
+    The trade log only starts accumulating from its first rebalance, so until
+    then we reconstruct the opening portfolio from real holdings (shares bought
+    at cost_basis) rather than show an empty table.
+    """
+    action_cls = {"BUY": "pos", "SELL": "neg", "TRIM": "warn"}
+    rows, note = [], ""
+
+    if trades is not None and len(trades):
+        recent = trades.tail(8).iloc[::-1]
+        for _, t in recent.iterrows():
+            act = str(t["action"]).upper()
+            rows.append(
+                f'<tr><td>{html.escape(str(t["timestamp"])[:10])}</td>'
+                f'<td class="{action_cls.get(act, "")}">{html.escape(act)}</td>'
+                f'<td>{html.escape(str(t["ticker"]))}</td>'
+                f'<td>{float(t["shares"]):.4f}</td>'
+                f'<td>${float(t["price"]):,.2f}</td>'
+                f'<td>${float(t["value"]):,.2f}</td></tr>')
+        note = (f'Showing the {len(recent)} most recent trades. The model '
+                f'rebalances ~every {config.PAPER_REBALANCE_DAYS} days; '
+                f'next ≈ {html.escape(_next_rebalance(snapshot))}.')
+    else:
+        incep = html.escape(snapshot.get("inception_date", "—"))
+        for h in snapshot.get("holdings", []):
+            cb = h.get("cost_basis", 0.0)
+            rows.append(
+                f'<tr><td>{incep}</td><td class="pos">BUY</td>'
+                f'<td>{html.escape(str(h["ticker"]))}</td>'
+                f'<td>{h["shares"]:.4f}</td><td>${cb:,.2f}</td>'
+                f'<td>${h["shares"] * cb:,.2f}</td></tr>')
+        note = (f'No rebalance trades logged yet — these are the opening positions '
+                f'bought at inception ({incep}). New buys/sells appear here after '
+                f'the first rebalance (≈ {html.escape(_next_rebalance(snapshot))}).')
+
+    if not rows:
+        body = '<tr><td colspan="6" class="muted">No activity yet.</td></tr>'
+    else:
+        body = "\n".join(rows)
+    return f'''<h2>Recent activity</h2>
+  <table><thead><tr><th>Date</th><th>Action</th><th>Ticker</th>
+    <th>Shares</th><th>Price</th><th>Value</th></tr></thead>
+    <tbody>{body}</tbody></table>
+  <p class="muted note">{note}</p>'''
 
 
 def _svg_chart(eq: pd.DataFrame, start_equity: float) -> str:
@@ -88,7 +170,8 @@ def _holdings_rows(holdings: list[dict]) -> str:
     return "\n".join(out)
 
 
-def render_dashboard(snapshot: dict, equity: pd.DataFrame | None) -> str:
+def render_dashboard(snapshot: dict, equity: pd.DataFrame | None,
+                     trades: pd.DataFrame | None = None) -> str:
     """Return the full HTML document for the paper-trading monitor."""
     s = snapshot
     ahead = s["vs_benchmark"] >= 0
@@ -96,6 +179,16 @@ def render_dashboard(snapshot: dict, equity: pd.DataFrame | None) -> str:
     days = _days_since(s.get("inception_date", ""))
     ret_cls = "pos" if s["total_return"] >= 0 else "neg"
     updated = s.get("generated_at", "")[:19].replace("T", " ")
+
+    dc = _daily_change(equity)
+    if dc is None:
+        today_val = '<div class="val muted">—</div><div class="muted">first day</div>'
+    else:
+        d_cls = "pos" if dc["m_abs"] >= 0 else "neg"
+        today_val = (
+            f'<div class="val {d_cls}">${dc["m_abs"]:+,.2f}</div>'
+            f'<div class="{d_cls}">{dc["m_pct"]:+.2%}</div>'
+            f'<div class="muted" style="font-size:12px">SPY {dc["b_pct"]:+.2%}</div>')
 
     return f'''<!doctype html>
 <html lang="en"><head>
@@ -118,7 +211,8 @@ def render_dashboard(snapshot: dict, equity: pd.DataFrame | None) -> str:
   .card .lab {{ color:#8b949e; font-size:12px; text-transform:uppercase;
     letter-spacing:.04em; }}
   .card .val {{ font-size:22px; font-weight:700; margin-top:4px; }}
-  .pos {{ color:#3fb950; }} .neg {{ color:#f85149; }}
+  .pos {{ color:#3fb950; }} .neg {{ color:#f85149; }} .warn {{ color:#d29922; }}
+  .note {{ font-size:12px; margin-top:8px; }}
   table {{ width:100%; border-collapse:collapse; margin-top:6px; }}
   th,td {{ text-align:left; padding:8px 10px; border-bottom:1px solid #21262d; }}
   th {{ color:#8b949e; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }}
@@ -160,6 +254,8 @@ def render_dashboard(snapshot: dict, equity: pd.DataFrame | None) -> str:
     <div class="card"><div class="lab">vs SPY</div>
       <div class="val {vs_cls}">${s["vs_benchmark"]:+,.2f}</div>
       <div class="muted">{"ahead of" if ahead else "behind"} the index</div></div>
+    <div class="card"><div class="lab">Today's gain / loss</div>
+      {today_val}</div>
     <div class="card"><div class="lab">Cash</div>
       <div class="val">${s["cash"]:,.2f}</div></div>
   </div>
@@ -171,6 +267,8 @@ def render_dashboard(snapshot: dict, equity: pd.DataFrame | None) -> str:
   <table><thead><tr><th>Ticker</th><th>Shares</th><th>Value</th>
     <th>Unrealized</th></tr></thead>
     <tbody>{_holdings_rows(s.get("holdings", []))}</tbody></table>
+
+  {_activity_section(trades, s)}
 
   <footer>
     Last updated {html.escape(updated)} UTC · auto-refreshes every 15 min ·
@@ -195,6 +293,10 @@ def build(out_path: Path | None = None) -> Path:
     if config.PAPER_EQUITY_PATH.exists():
         equity = pd.read_csv(config.PAPER_EQUITY_PATH, parse_dates=["timestamp"])
 
+    trades = None
+    if config.PAPER_TRADES_PATH.exists():
+        trades = pd.read_csv(config.PAPER_TRADES_PATH)
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(render_dashboard(snapshot, equity), encoding="utf-8")
+    out_path.write_text(render_dashboard(snapshot, equity, trades), encoding="utf-8")
     return out_path

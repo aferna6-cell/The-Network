@@ -128,6 +128,7 @@ PAPER_STATE_DIR = ROOT / "paper_state"
 PAPER_ACCOUNT_PATH = PAPER_STATE_DIR / "paper_account.json"
 PAPER_EQUITY_PATH = PAPER_STATE_DIR / "paper_equity.csv"
 PAPER_SNAPSHOT_PATH = PAPER_STATE_DIR / "paper_snapshot.json"
+PAPER_TRADES_PATH = PAPER_STATE_DIR / "paper_trades.csv"
 
 # --- Deep-learning experiments (optional; needs requirements-deep.txt) ------
 # Sequence model (LSTM over a window of the SAME leak-free features the tree
