@@ -115,7 +115,9 @@ def log_and_snapshot(
                      path=config.XS_LEDGER_PATH, now=now)
 
     for r in recs:
-        if r.action in ("BUY", "SELL") and r.price > 0:
+        # One open call per name: skip if we already have an un-reconciled row.
+        if (r.action in ("BUY", "SELL") and r.price > 0
+                and not ledger.has_open_prediction(r.ticker, config.XS_LEDGER_PATH)):
             ledger.append_prediction(
                 ticker=r.ticker, horizon_days=model.horizon, price_at_pred=r.price,
                 prob_up=r.score, recommendation=r.action,

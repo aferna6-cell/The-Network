@@ -65,3 +65,26 @@ def test_snapshot_writes_actions_and_track(tmp_path, monkeypatch):
     assert (tmp_path / "xsr.json").exists()
     # First run has no graded calls yet.
     assert snap["live_track_record"]["accuracy"] is None
+
+
+def test_frequent_runs_do_not_duplicate_ledger(tmp_path, monkeypatch):
+    import config
+    import pandas as pd
+    from src import ledger
+    monkeypatch.setattr(config, "XS_LEDGER_PATH", tmp_path / "xsl.csv")
+    monkeypatch.setattr(config, "XS_RECOMMENDATIONS_PATH", tmp_path / "xsr.json")
+    monkeypatch.setattr(config, "STATE_DIR", tmp_path)
+
+    prices = {f"T{i}": _synth(i) for i in range(12)}
+    model = xs.train_full_model(prices, horizon=21)
+    port = Portfolio(cash=1000.0, positions={})
+    prices_now = {t: float(p["adj_close"].iloc[-1]) for t, p in prices.items()}
+    recs = xs_recommend.recommend(prices, port, model, prices_now)
+
+    # Run three times in a row (simulating an always-on loop).
+    for _ in range(3):
+        xs_recommend.log_and_snapshot(recs, model, port, prices_now)
+
+    led = ledger.load_ledger(config.XS_LEDGER_PATH)
+    # No ticker should appear more than once while its call is still open.
+    assert led["ticker"].is_unique

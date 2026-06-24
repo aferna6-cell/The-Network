@@ -78,6 +78,25 @@ def load_ledger(path: Path | None = None) -> pd.DataFrame:
     return pd.read_csv(path, dtype={"correct": "object", "actual_return": "object"})
 
 
+def has_open_prediction(ticker: str, path: Path | None = None) -> bool:
+    """True if `ticker` already has an un-reconciled call on the books.
+
+    Used to throttle logging: with a ~monthly horizon we want at most ONE open
+    call per name, so an always-on loop running every few minutes does not flood
+    the ledger with duplicates and corrupt the live-accuracy number.
+    """
+    df = load_ledger(path)
+    if df.empty:
+        return False
+    mine = df[df["ticker"] == ticker.upper()]
+    if mine.empty:
+        return False
+    # An open call has no outcome yet: `correct` is NaN/blank (reconciled rows
+    # carry 0/1). isna() is the robust check here.
+    blank = mine["correct"].isna() | (mine["correct"].astype(str).str.strip() == "")
+    return bool(blank.any())
+
+
 def reconcile(
     price_lookup,
     *,

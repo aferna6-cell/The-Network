@@ -49,6 +49,17 @@ def test_reconcile_skips_not_yet_due(tmp_path):
     assert ledger.reconcile(lambda t: 110.0, path=path, now=_ts(2)) == 0
 
 
+def test_has_open_prediction(tmp_path):
+    path = tmp_path / "led.csv"
+    assert not ledger.has_open_prediction("AAPL", path)
+    ledger.append_prediction(
+        ticker="AAPL", horizon_days=1, price_at_pred=100.0, prob_up=0.7,
+        recommendation="BUY", model_version="v1", path=path, now=_ts(1))
+    assert ledger.has_open_prediction("AAPL", path)      # open
+    ledger.reconcile(lambda t: 110.0, path=path, now=_ts(3))
+    assert not ledger.has_open_prediction("AAPL", path)  # now reconciled
+
+
 def test_live_accuracy(tmp_path):
     path = tmp_path / "led.csv"
     for i, (prob, up) in enumerate([(0.8, True), (0.8, False), (0.2, False)]):

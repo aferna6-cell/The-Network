@@ -10,6 +10,9 @@ requests>=2.31
 # News sentiment (lexicon-based, no model download)
 vaderSentiment>=3.3
 
+# Dashboard
+streamlit>=1.30
+
 # Tests
 pytest>=7.4
 
