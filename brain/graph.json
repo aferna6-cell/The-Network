@@ -29,6 +29,10 @@
       "title": "News Sentiment"
     },
     {
+      "id": "online-learning",
+      "title": "Online Learning"
+    },
+    {
       "id": "risk-metrics",
       "title": "Risk Metrics"
     },
@@ -213,6 +217,22 @@
     {
       "source": "news-sentiment",
       "target": "risk-metrics"
+    },
+    {
+      "source": "online-learning",
+      "target": "backtesting-pitfalls"
+    },
+    {
+      "source": "online-learning",
+      "target": "data-leakage"
+    },
+    {
+      "source": "online-learning",
+      "target": "efficient-market-hypothesis"
+    },
+    {
+      "source": "online-learning",
+      "target": "walk-forward-validation"
     },
     {
       "source": "risk-metrics",

@@ -103,6 +103,63 @@ def _parse_chart(payload: dict, ticker: str) -> pd.DataFrame:
     return df[_REQUIRED_COLS]
 
 
+def fetch_intraday(
+    ticker: str,
+    interval: str = "5m",
+    range_: str = "5d",
+    *,
+    session: requests.Session | None = None,
+) -> pd.DataFrame:
+    """Fetch recent intraday bars (e.g. 1m/5m) for the live loop.
+
+    Returns a DataFrame indexed by timestamp with the standard OHLCV columns
+    (adj_close mirrors close intraday — Yahoo does not adjust intraday bars).
+    """
+    url = _CHART_URL.format(ticker=ticker)
+    params = {"interval": interval, "range": range_, "includePrePost": "false"}
+    sess = session or requests.Session()
+    resp = sess.get(url, params=params, headers=_HEADERS, timeout=30)
+    resp.raise_for_status()
+    payload = resp.json()
+
+    res = payload["chart"]["result"][0]
+    timestamps = res.get("timestamp")
+    if not timestamps:
+        raise ValueError(f"{ticker}: no intraday data for {interval}/{range_}")
+    quote = res["indicators"]["quote"][0]
+    df = pd.DataFrame({
+        "open": quote["open"], "high": quote["high"], "low": quote["low"],
+        "close": quote["close"], "adj_close": quote["close"],
+        "volume": quote["volume"],
+    }, index=pd.to_datetime(timestamps, unit="s"))
+    df.index.name = "datetime"
+    return df.dropna(subset=["close"])
+
+
+def latest_quote(
+    ticker: str, *, session: requests.Session | None = None
+) -> dict:
+    """Return the current price snapshot from the chart API meta block.
+
+    Keys: price, previous_close, currency, market_state, exchange_tz.
+    `market_state` is e.g. PRE / REGULAR / POST / CLOSED.
+    """
+    url = _CHART_URL.format(ticker=ticker)
+    params = {"interval": "1d", "range": "1d"}
+    sess = session or requests.Session()
+    resp = sess.get(url, params=params, headers=_HEADERS, timeout=30)
+    resp.raise_for_status()
+    meta = resp.json()["chart"]["result"][0]["meta"]
+    return {
+        "ticker": ticker.upper(),
+        "price": meta.get("regularMarketPrice"),
+        "previous_close": meta.get("chartPreviousClose") or meta.get("previousClose"),
+        "currency": meta.get("currency"),
+        "market_state": meta.get("marketState"),
+        "exchange_tz": meta.get("exchangeTimezoneName"),
+    }
+
+
 def load_or_fetch(
     ticker: str,
     start: str = config.HISTORY_START,

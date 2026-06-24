@@ -19,6 +19,10 @@ models/
 # Reports
 reports/
 
+# Live loop state + personal financial data (NEVER commit real holdings)
+state/
+portfolio.json
+
 # OS / editor
 .DS_Store
 .vscode/
