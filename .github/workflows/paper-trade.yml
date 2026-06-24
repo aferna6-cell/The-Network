@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write           # to commit the updated paper_state/
+  issues: write             # to post the daily report comment
 
 concurrency:
   group: paper-trade        # never overlap two ticks
@@ -53,3 +54,9 @@ jobs:
             git commit -m "chore(paper): daily tick — update equity curve"
             git push
           fi
+
+      - name: Post daily report to the tracking issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAPER_REPORT_ISSUE: "2"
+        run: python scripts/paper_report.py
