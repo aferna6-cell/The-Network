@@ -31,7 +31,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Refresh news log
-        run: python scripts/update_news.py
+        # Full ranked universe so forward news accumulates for every name the
+        # paper demo might hold — the sentiment A/B (scripts/sentiment_experiment.py)
+        # only becomes meaningful once these logs run years, not weeks, deep.
+        run: python scripts/update_news.py --universe
 
       - name: Commit updated news log
         run: |
