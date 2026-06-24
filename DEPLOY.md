@@ -4,8 +4,21 @@ The live recommender (`scripts/run_live.py`) is a long-running process. It needs
 **persistent host** — this repo's dev container is ephemeral and will not keep it
 alive. Below are the realistic options, cheapest first.
 
-> It places **no trades**. It writes recommendations to `state/recommendations.json`
-> for you (or a dashboard / notifier) to read and act on.
+> It places **no trades**. It writes recommendations to `state/` for the
+> dashboard to read; you decide what to act on.
+
+## What to run (the recommended pair)
+1. **The always-on monitor** — `python scripts/run_live_xs.py` — continuously
+   refreshes prices, re-values your portfolio, reconciles past calls, recomputes
+   the live track record, and re-ranks (retraining daily). Writes
+   `state/xs_recommendations.json` + `state/xs_ledger.csv`.
+2. **The dashboard** — `streamlit run dashboard/app.py` — reads that state and
+   shows Buy/Sell/Trim, holds, portfolio value, and the live track record.
+
+Run both on the persistent host (they share `state/`). On Railway/Fly, run the
+loop as the main process and the dashboard as a second service (or a separate
+small deploy) pointed at the same volume. `scripts/run_live.py` (single-stock
+loop) remains available but the cross-sectional pair above is the current path.
 
 ## What you must provide
 - **`portfolio.json`** — your holdings (copy `portfolio.example.json`). Never
