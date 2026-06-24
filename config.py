@@ -128,3 +128,20 @@ PAPER_STATE_DIR = ROOT / "paper_state"
 PAPER_ACCOUNT_PATH = PAPER_STATE_DIR / "paper_account.json"
 PAPER_EQUITY_PATH = PAPER_STATE_DIR / "paper_equity.csv"
 PAPER_SNAPSHOT_PATH = PAPER_STATE_DIR / "paper_snapshot.json"
+
+# --- Deep-learning experiments (optional; needs requirements-deep.txt) ------
+# Sequence model (LSTM over a window of the SAME leak-free features the tree
+# uses). These are honest-comparison knobs, fixed up front — not tuned to win.
+SEQ_WINDOW = 20            # trading days of feature history per training sample
+SEQ_HIDDEN = 32           # LSTM hidden units (small — the dataset is small)
+SEQ_LAYERS = 1            # stacked LSTM layers
+SEQ_DROPOUT = 0.10        # dropout between layers / before the head
+SEQ_EPOCHS = 40           # max training epochs per walk-forward refit
+SEQ_PATIENCE = 6          # early-stopping patience on the validation tail
+SEQ_LR = 1e-3             # Adam learning rate
+SEQ_BATCH = 64            # minibatch size
+SEQ_VAL_FRACTION = 0.15   # tail of each training window held out for early stop
+# News-sentiment feature (FinBERT or VADER): trailing-window mean, lagged so
+# same-day post-close headlines are never used at that day's close.
+SENT_WINDOW_DAYS = 5      # calendar-day lookback for the rolling sentiment mean
+SENT_LAG_DAYS = 1         # conservative point-in-time lag (see sentiment_features)

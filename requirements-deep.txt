@@ -1,0 +1,16 @@
+# Optional deep-learning extras for the experiments in src/deep.py + src/finbert.py.
+# Deliberately NOT in requirements.txt: torch + transformers are large and the
+# core model, backtest, paper demo, and test suite all run without them. Install
+# only when you want to RUN the deep-learning experiments:
+#
+#     pip install -r requirements.txt -r requirements-deep.txt
+#
+# CPU-only torch keeps the install small; for the default (CUDA) wheel drop the
+# --index-url. The repo's tests skip the torch/transformers paths when absent.
+
+# Sequence model (LSTM). CPU wheel:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+
+# FinBERT headline sentiment (downloads ProsusAI/finbert weights on first use).
+transformers>=4.40

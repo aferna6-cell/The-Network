@@ -86,12 +86,42 @@ tests/               # offline tests: leakage guards, cost/metric math, news
   point-in-time discipline is textbook leakage. See
   [`brain/concepts/news-sentiment.md`](brain/concepts/news-sentiment.md).
 
+## Deep learning (optional experiments)
+
+Classical gradient-boosted trees are the right default for small, noisy,
+tabular daily data — so they stay the baseline. But two **honest** deep-learning
+experiments now live in the repo, each running under the *same* leak-free
+walk-forward and cost model as the tree (the only fair way to compare):
+
+```bash
+pip install -r requirements.txt -r requirements-deep.txt   # torch + transformers
+
+# (B) LSTM over a window of the SAME features vs the tree, head-to-head
+python scripts/deep_experiment.py --tickers AAPL SPY
+
+# (A) FinBERT headline sentiment as a point-in-time feature vs price-only baseline
+python scripts/update_news.py --tickers AAPL          # build the news log first
+python scripts/sentiment_experiment.py --tickers AAPL --finbert
+```
+
+The honest prior, which these exist to test rather than decorate: on daily bars
+after costs the **tree is expected to win**, and the sentiment feature only
+starts to matter once enough *forward* news accumulates (the committed log is
+weeks deep, not years). Leak discipline carries over verbatim — the feature
+scaler is fit on training rows only, and a prediction window for day *t* uses
+only rows ≤ *t*. See
+[`brain/concepts/neural-networks.md`](brain/concepts/neural-networks.md). These
+extras are excluded from `requirements.txt` and the core test suite skips their
+paths when torch/transformers are absent.
+
 ## Roadmap
 
 - **Phase 1 (this repo):** historical training + honest backtest. ✅
 - **Phase 2:** a recommendation dashboard reading these artifacts.
-- **Later (validated separately):** sentiment as a backtested feature; richer
-  universe; regime awareness.
+- **In progress:** sentiment as a backtested feature (FinBERT) + an LSTM
+  sequence challenger — both wired under the honest harness, pending enough
+  forward news + an out-of-sample edge that survives costs.
+- **Later (validated separately):** richer universe; regime awareness.
 
 ## Disclaimer
 
