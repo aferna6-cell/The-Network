@@ -43,15 +43,18 @@ jobs:
             python scripts/paper_run.py --reset
           fi
 
-      - name: Commit the updated equity curve
+      - name: Rebuild the static dashboard (docs/index.html for GitHub Pages)
+        run: python scripts/build_paper_dashboard.py
+
+      - name: Commit the updated equity curve + dashboard
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add paper_state
+          git add paper_state docs/index.html
           if git diff --cached --quiet; then
             echo "No paper-state change to commit."
           else
-            git commit -m "chore(paper): daily tick — update equity curve"
+            git commit -m "chore(paper): daily tick — update equity curve + dashboard"
             git push
           fi
 
