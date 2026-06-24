@@ -114,10 +114,25 @@ only rows ≤ *t*. See
 extras are excluded from `requirements.txt` and the core test suite skips their
 paths when torch/transformers are absent.
 
+## Monitoring the paper-trading demo
+
+Two ways to watch the $500 forward test:
+
+- **Always-on web page** (no server). The paper-trade Action regenerates a
+  self-contained `docs/index.html` every tick and commits it. Publish it once via
+  **Settings → Pages → Source: `main` / `docs`**, then it lives at
+  `https://aferna6-cell.github.io/The-Network/` and refreshes daily. Build it
+  locally any time with `python scripts/build_paper_dashboard.py`.
+- **Daily write-up** on [issue #2](https://github.com/aferna6-cell/The-Network/issues/2)
+  — subscribe for a notification each trading day.
+- **Local deep-dive:** `streamlit run dashboard/app.py` for the interactive view
+  (recommendations + live track record alongside the paper demo).
+
 ## Roadmap
 
 - **Phase 1 (this repo):** historical training + honest backtest. ✅
-- **Phase 2:** a recommendation dashboard reading these artifacts.
+- **Phase 2:** dashboards reading these artifacts — static paper-trading monitor
+  (`docs/index.html`) + Streamlit deep-dive. ✅
 - **In progress:** sentiment as a backtested feature (FinBERT) + an LSTM
   sequence challenger — both wired under the honest harness, pending enough
   forward news + an out-of-sample edge that survives costs.
