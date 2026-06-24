@@ -69,6 +69,40 @@ def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int) -> pd.D
     return panel[counts >= 5].dropna(subset=XS_FEATURES).reset_index(drop=True)
 
 
+def latest_cross_section(prices_by_ticker: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    """Build the CURRENT cross-section to score (no target — today is unknown).
+
+    Returns a frame indexed by ticker with XS_FEATURES for each ticker's most
+    recent bar, with cross-sectional ranks computed across the live universe.
+    """
+    rows = {}
+    for ticker, prices in prices_by_ticker.items():
+        feats = add_features(prices).dropna(subset=FEATURE_COLUMNS)
+        if not feats.empty:
+            rows[ticker] = feats.iloc[-1][FEATURE_COLUMNS]
+    if not rows:
+        raise ValueError("No ticker had enough history to score")
+
+    cross = pd.DataFrame(rows).T.astype(float)
+    cross.index.name = "ticker"
+    for col in _RANKED:
+        cross[f"xs_rank_{col}"] = cross[col].rank(pct=True)
+    return cross[XS_FEATURES]
+
+
+def train_full_model(
+    prices_by_ticker: dict[str, pd.DataFrame], *, horizon: int = config.XS_HORIZON
+) -> "TrainedModel":
+    """Train one cross-sectional model on the full panel (for live scoring)."""
+    from src.model import TrainedModel  # local import avoids a cycle
+
+    panel = build_panel(prices_by_ticker, horizon=horizon)
+    est = HistGradientBoostingClassifier(**config.MODEL_PARAMS)
+    est.fit(panel[XS_FEATURES], panel["target"])
+    return TrainedModel(estimator=est, feature_columns=XS_FEATURES,
+                        horizon=horizon, threshold=0.5, n_train_rows=len(panel))
+
+
 @dataclass
 class XSResult:
     rebalances: pd.DataFrame   # per-period strat vs benchmark returns

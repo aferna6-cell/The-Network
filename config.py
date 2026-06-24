@@ -104,3 +104,13 @@ MONITOR_WINDOW = 60
 MONITOR_MIN_ACCURACY = 0.48
 # Warn that the model is stale once it is older than this (hours).
 MONITOR_STALE_AFTER_HOURS = 48
+
+# --- Cross-sectional recommender -------------------------------------------
+XS_HORIZON = 21                 # rank on ~1-month forward outperformance
+XS_TOP_QUANTILE = 0.20          # "BUY" = top 20% of the ranked universe
+XS_SELL_PERCENTILE = 0.40       # "SELL" a held name ranked in the bottom 40%
+XS_MODEL_PATH = MODELS_DIR / "xs_model.joblib"
+# Cross-sectional calls get their OWN ledger (relative-outperformance semantics
+# differ from the single-stock up/down ledger).
+XS_LEDGER_PATH = STATE_DIR / "xs_ledger.csv"
+XS_RECOMMENDATIONS_PATH = STATE_DIR / "xs_recommendations.json"
