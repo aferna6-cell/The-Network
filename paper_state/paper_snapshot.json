@@ -1,86 +1,55 @@
 {
-  "generated_at": "2026-06-24T14:57:34.477352+00:00",
+  "generated_at": "2026-06-24T15:46:09.347564+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 499.6535,
+  "equity": 500.72616850558853,
   "cash": 4.653500000000008,
-  "total_return": -0.0006929999999999437,
-  "benchmark_equity": 500.0,
-  "benchmark_return": 0.0,
-  "vs_benchmark": -0.3464999999999918,
+  "total_return": 0.001452337011176974,
+  "benchmark_equity": 499.509505446181,
+  "benchmark_return": -0.0009809891076379973,
+  "vs_benchmark": 1.2166630594075514,
   "holdings": [
     {
       "ticker": "AAPL",
       "shares": 0.3334,
-      "price": 296.97,
-      "value": 99.0,
+      "price": 298.43,
+      "value": 99.49,
       "cost_basis": 296.97,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.004899484796444087
     },
     {
       "ticker": "CRM",
       "shares": 0.6405,
-      "price": 154.56,
-      "value": 99.0,
+      "price": 154.87,
+      "value": 99.2,
       "cost_basis": 154.56,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.0020381094108892217
     },
     {
       "ticker": "CVX",
       "shares": 0.5785,
-      "price": 171.12,
-      "value": 99.0,
+      "price": 171.82,
+      "value": 99.4,
       "cost_basis": 171.12,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.004090696587190301
     },
     {
       "ticker": "NFLX",
       "shares": 1.3667,
-      "price": 72.44,
-      "value": 99.0,
+      "price": 72.08,
+      "value": 98.52,
       "cost_basis": 72.44,
-      "unrealized_pct": 0.0
+      "unrealized_pct": -0.004831918271553937
     },
     {
       "ticker": "XOM",
       "shares": 0.7289,
-      "price": 135.81,
-      "value": 99.0,
+      "price": 136.44,
+      "value": 99.46,
       "cost_basis": 135.81,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.004638662887015421
     }
   ],
-  "trades_this_tick": [
-    {
-      "ticker": "NFLX",
-      "action": "BUY",
-      "shares": 1.3667,
-      "price": 72.44
-    },
-    {
-      "ticker": "XOM",
-      "action": "BUY",
-      "shares": 0.7289,
-      "price": 135.81
-    },
-    {
-      "ticker": "CRM",
-      "action": "BUY",
-      "shares": 0.6405,
-      "price": 154.56
-    },
-    {
-      "ticker": "AAPL",
-      "action": "BUY",
-      "shares": 0.3334,
-      "price": 296.97
-    },
-    {
-      "ticker": "CVX",
-      "action": "BUY",
-      "shares": 0.5785,
-      "price": 171.12
-    }
-  ],
+  "trades_this_tick": [],
   "last_rebalance": "2026-06-24T14:57:34.477352+00:00"
 }
