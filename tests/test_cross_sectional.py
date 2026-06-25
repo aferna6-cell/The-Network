@@ -57,3 +57,24 @@ def test_backtest_runs_and_reports():
     for key in ("cagr", "sharpe", "max_drawdown"):
         assert key in res.metrics["strategy"]
     assert 0.0 <= res.metrics["avg_turnover"] <= 1.0
+
+
+def test_build_panel_ranked_param_adds_extra_xs_ranks():
+    prices = {f"T{i}": _synth(i) for i in range(8)}
+    extra = ["ret_5", "boll_pctb"]
+    panel = xs.build_panel(prices, horizon=21, ranked=xs._RANKED + extra)
+    for col in extra:
+        assert f"xs_rank_{col}" in panel.columns
+        assert panel[f"xs_rank_{col}"].between(0, 1).all()
+    # Default call is unchanged (backward compatible).
+    base = xs.build_panel(prices, horizon=21)
+    assert "xs_rank_ret_5" not in base.columns
+
+
+def test_backtest_accepts_custom_feature_list():
+    prices = {f"T{i}": _synth(i) for i in range(10)}
+    ranked = xs._RANKED + ["ret_5"]
+    panel = xs.build_panel(prices, horizon=21, ranked=ranked)
+    feats = FEATURE_COLUMNS + [f"xs_rank_{c}" for c in ranked]
+    res = xs.backtest(panel, horizon=21, top_quantile=0.3, features=feats)
+    assert res.metrics["n_rebalances"] > 0
