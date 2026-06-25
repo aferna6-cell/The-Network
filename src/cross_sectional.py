@@ -43,8 +43,16 @@ _RANKED = ["mom_20", "ret_20", "vol_20", "rsi_14", "sma_ratio_50"]
 XS_FEATURES = FEATURE_COLUMNS + [f"xs_rank_{c}" for c in _RANKED]
 
 
-def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int) -> pd.DataFrame:
-    """Stack per-stock features into one panel with cross-sectional ranks + target."""
+def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int,
+                ranked: list[str] | None = None) -> pd.DataFrame:
+    """Stack per-stock features into one panel with cross-sectional ranks + target.
+
+    `ranked` is the set of base features to cross-sectionally rank (default
+    `_RANKED`). Pass a wider list to test extra relative signals (e.g. crowding /
+    short-term-reversal ranks) without disturbing the production feature set.
+    """
+    ranked = list(ranked) if ranked is not None else _RANKED
+    feature_cols = FEATURE_COLUMNS + [f"xs_rank_{c}" for c in ranked]
     frames = []
     for ticker, prices in prices_by_ticker.items():
         f = add_features(prices)[FEATURE_COLUMNS].copy()
@@ -58,7 +66,7 @@ def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int) -> pd.D
     panel = panel.dropna(subset=FEATURE_COLUMNS + ["fwd_return"])
 
     # Cross-sectional rank (percentile within each day) — the relative signal.
-    for col in _RANKED:
+    for col in ranked:
         panel[f"xs_rank_{col}"] = panel.groupby("date")[col].rank(pct=True)
 
     # Target: beat the universe's median forward return that day (relative).
@@ -66,7 +74,7 @@ def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int) -> pd.D
     panel["target"] = (panel["fwd_return"] > panel["median_fwd"]).astype(float)
     # Days with too few names to rank meaningfully add noise; require >= 5.
     counts = panel.groupby("date")["ticker"].transform("count")
-    return panel[counts >= 5].dropna(subset=XS_FEATURES).reset_index(drop=True)
+    return panel[counts >= 5].dropna(subset=feature_cols).reset_index(drop=True)
 
 
 def latest_cross_section(prices_by_ticker: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -129,12 +137,15 @@ def backtest(
     initial_fraction: float = 0.6,
     top_quantile: float = 0.2,
     cost_bps: float = config.TRANSACTION_COST_BPS + config.SLIPPAGE_BPS,
+    features: list[str] | None = None,
 ) -> XSResult:
     """Walk-forward: each rebalance, rank the cross-section and hold the top names.
 
     Non-overlapping (rebalance == horizon), equal-weight top basket, charged for
-    turnover. Benchmark = equal-weight of the whole universe that day.
+    turnover. Benchmark = equal-weight of the whole universe that day. `features`
+    defaults to `XS_FEATURES`; pass a wider list to test added signals.
     """
+    feats = list(features) if features is not None else XS_FEATURES
     dates = sorted(panel["date"].unique())
     n = len(dates)
     initial = int(n * initial_fraction)
@@ -152,13 +163,13 @@ def backtest(
             continue
 
         model = HistGradientBoostingClassifier(**config.MODEL_PARAMS)
-        model.fit(train[XS_FEATURES], train["target"])
+        model.fit(train[feats], train["target"])
         up = list(model.classes_).index(1.0) if 1.0 in list(model.classes_) else -1
 
         cross = panel[panel["date"] == d].copy()
         if len(cross) < 5:
             continue
-        cross["score"] = model.predict_proba(cross[XS_FEATURES])[:, up]
+        cross["score"] = model.predict_proba(cross[feats])[:, up]
         k = max(1, int(round(len(cross) * top_quantile)))
         top = cross.nlargest(k, "score")
         top_set = set(top["ticker"])

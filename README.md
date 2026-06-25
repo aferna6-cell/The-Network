@@ -156,6 +156,18 @@ after 12 trials) — which is the honest, correct outcome. No real money trades
 until a real edge clears these numbers. Loops automate execution; they do not
 manufacture edge.
 
+### Tested and rejected (kept for honesty)
+
+Experiments that ran under the same gate and **did not** clear it — recorded so
+we don't re-litigate them:
+
+- **Deep learning** (LSTM + FinBERT, `scripts/deep_experiment.py`,
+  `scripts/sentiment_experiment.py`) — neither beat the gradient-boosting model
+  or buy-and-hold.
+- **Crowding / short-term reversal** (`scripts/crowding_experiment.py`) — adding
+  cross-sectional reversal + over-extension ranks *hurt*: Sharpe 0.85 → 0.76,
+  max drawdown -27% → -38%. A clean negative result; the proxy added noise.
+
 ## Roadmap
 
 - **Phase 1 (this repo):** historical training + honest backtest. ✅
