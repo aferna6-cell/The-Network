@@ -77,6 +77,24 @@ def build_panel(prices_by_ticker: dict[str, pd.DataFrame], horizon: int,
     return panel[counts >= 5].dropna(subset=feature_cols).reset_index(drop=True)
 
 
+def wml_factor(panel: pd.DataFrame, dates, *, feature: str = "mom_20",
+               quantile: float = 0.2) -> list[float]:
+    """Winners-minus-losers factor return per date: long top, short bottom by
+    `feature`, realised over the same forward window. Used to factor-neutralise
+    the strategy (is its edge alpha, or just momentum exposure?)."""
+    out = []
+    for d in dates:
+        cross = panel[panel["date"] == d]
+        if len(cross) < 5:
+            out.append(0.0)
+            continue
+        k = max(1, int(round(len(cross) * quantile)))
+        top = float(cross.nlargest(k, feature)["fwd_return"].mean())
+        bot = float(cross.nsmallest(k, feature)["fwd_return"].mean())
+        out.append(top - bot)
+    return out
+
+
 def latest_cross_section(prices_by_ticker: dict[str, pd.DataFrame]) -> pd.DataFrame:
     """Build the CURRENT cross-section to score (no target — today is unknown).
 
@@ -138,14 +156,19 @@ def backtest(
     top_quantile: float = 0.2,
     cost_bps: float = config.TRANSACTION_COST_BPS + config.SLIPPAGE_BPS,
     features: list[str] | None = None,
+    model_factory=None,
 ) -> XSResult:
     """Walk-forward: each rebalance, rank the cross-section and hold the top names.
 
     Non-overlapping (rebalance == horizon), equal-weight top basket, charged for
     turnover. Benchmark = equal-weight of the whole universe that day. `features`
     defaults to `XS_FEATURES`; pass a wider list to test added signals.
+    `model_factory` is a no-arg callable returning a fresh classifier (default:
+    the gradient-boosting model) — swap in a linear model to test it.
     """
     feats = list(features) if features is not None else XS_FEATURES
+    make_model = model_factory or (
+        lambda: HistGradientBoostingClassifier(**config.MODEL_PARAMS))
     dates = sorted(panel["date"].unique())
     n = len(dates)
     initial = int(n * initial_fraction)
@@ -162,7 +185,7 @@ def backtest(
         if len(train) < 500:
             continue
 
-        model = HistGradientBoostingClassifier(**config.MODEL_PARAMS)
+        model = make_model()
         model.fit(train[feats], train["target"])
         up = list(model.classes_).index(1.0) if 1.0 in list(model.classes_) else -1
 
