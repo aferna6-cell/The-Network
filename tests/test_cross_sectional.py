@@ -78,3 +78,24 @@ def test_backtest_accepts_custom_feature_list():
     feats = FEATURE_COLUMNS + [f"xs_rank_{c}" for c in ranked]
     res = xs.backtest(panel, horizon=21, top_quantile=0.3, features=feats)
     assert res.metrics["n_rebalances"] > 0
+
+
+def test_backtest_accepts_custom_model_factory():
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+
+    panel = _panel(n_tickers=10)
+    res = xs.backtest(
+        panel, horizon=21, top_quantile=0.3,
+        model_factory=lambda: make_pipeline(StandardScaler(),
+                                            LogisticRegression(max_iter=500)))
+    assert res.metrics["n_rebalances"] > 0
+
+
+def test_wml_factor_aligned_and_bounded():
+    panel = _panel(n_tickers=10)
+    dates = sorted(panel["date"].unique())[:6]
+    wml = xs.wml_factor(panel, dates)
+    assert len(wml) == len(dates)
+    assert all(isinstance(x, float) for x in wml)

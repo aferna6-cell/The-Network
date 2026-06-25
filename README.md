@@ -156,6 +156,17 @@ after 12 trials) — which is the honest, correct outcome. No real money trades
 until a real edge clears these numbers. Loops automate execution; they do not
 manufacture edge.
 
+### Factor-neutral alpha (is it real alpha, or rented beta?)
+
+`verify_strategy.py` also regresses the strategy's returns on a market factor
+(equal-weight universe) + a momentum factor, and reports the surviving **alpha
+intercept with a Newey-West t-stat** (Jensen's alpha). "Beats SPY" isn't enough —
+excess return can be disguised factor exposure.
+
+Current verdict: **not real alpha.** Annualised alpha +3.45% but t-stat **0.71**
+(need ≥ 2), R² 0.70, **market beta 1.18** — the strategy's "edge" over the index
+is mostly just being levered-long the market, not skill.
+
 ### Tested and rejected (kept for honesty)
 
 Experiments that ran under the same gate and **did not** clear it — recorded so
@@ -167,6 +178,10 @@ we don't re-litigate them:
 - **Crowding / short-term reversal** (`scripts/crowding_experiment.py`) — adding
   cross-sectional reversal + over-extension ranks *hurt*: Sharpe 0.85 → 0.76,
   max drawdown -27% → -38%. A clean negative result; the proxy added noise.
+- **Linear baseline** (`scripts/linear_baseline_experiment.py`) — a scaled
+  logistic regression *underperformed* the gradient-boosting model (Sharpe 0.67
+  vs 0.85, drawdown -49% vs -27%). For this problem the non-linearity earns its
+  keep — but both still fail the gate.
 
 ## Roadmap
 

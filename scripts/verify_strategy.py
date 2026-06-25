@@ -57,6 +57,13 @@ def main() -> int:
           f"(~{ppy:.1f} periods/yr), declaring {args.trials} trial(s):\n")
     print(verdict.render())
     print(f"\nexcess CAGR vs equal-weight: {res.metrics.get('excess_cagr', 0):+.2%}")
+
+    # Factor-neutral alpha: strip market (equal-weight universe) + momentum.
+    factors = {"market": reb["bench_ret"].to_numpy(),
+               "momentum": xs.wml_factor(panel, reb["date"])}
+    fa = verify.factor_alpha(reb["strat_ret"], factors, periods_per_year=ppy)
+    print()
+    print(fa.render())
     if not verdict.passed:
         print("\nNot approved to trade. This is the expected, honest outcome until "
               "a real out-of-sample edge shows up.")

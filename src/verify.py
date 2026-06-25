@@ -176,3 +176,80 @@ def gate(returns, *, periods_per_year: float, n_trials: int,
     stats = {"annual_sharpe": sr, "newey_west_t": nw, "deflated_sharpe": dsr,
              "max_drawdown": mdd, "n_obs": int(n), "n_trials": n_trials}
     return Verdict(passed, checks, stats)
+
+
+# --- Factor-neutral alpha (Jensen's alpha) -----------------------------------
+# "Beats SPY" isn't enough: excess return can be disguised exposure to known
+# factors (market, momentum). Real alpha is the regression intercept that
+# survives AFTER those factors are stripped out — with a Newey-West t-stat,
+# because financial residuals are autocorrelated. r = alpha + sum(beta*factor)+e.
+
+def _ols_hac(X: np.ndarray, y: np.ndarray, lags: int | None = None):
+    """OLS with Newey-West (HAC) standard errors. Returns (beta, tstats, r2)."""
+    n, p = X.shape
+    xtx_inv = np.linalg.inv(X.T @ X)
+    beta = xtx_inv @ (X.T @ y)
+    resid = y - X @ beta
+    if lags is None:
+        lags = _nw_lags(n)
+    xe = X * resid[:, None]
+    meat = xe.T @ xe                                  # Σ e_t^2 x_t x_t'
+    for k in range(1, lags + 1):
+        g = xe[k:].T @ xe[:-k]
+        meat += (1.0 - k / (lags + 1.0)) * (g + g.T)  # Bartlett-weighted lags
+    # Same plain HAC convention as newey_west_tstat (no n/(n-p) correction), so
+    # the no-factor case reduces exactly to that statistic.
+    cov = xtx_inv @ meat @ xtx_inv
+    se = np.sqrt(np.maximum(np.diag(cov), 0.0))
+    tstats = np.divide(beta, se, out=np.zeros_like(beta), where=se > 0)
+    ss_res = float(resid @ resid)
+    ss_tot = float(((y - y.mean()) ** 2).sum())
+    r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
+    return beta, tstats, r2
+
+
+@dataclass
+class FactorAlpha:
+    alpha_per_period: float
+    alpha_annualized: float
+    alpha_tstat: float
+    betas: dict
+    r_squared: float
+    n_obs: int
+
+    @property
+    def significant(self) -> bool:
+        """Positive alpha with |t| above the gate's Newey-West bar."""
+        return self.alpha_per_period > 0 and self.alpha_tstat >= config.STRATEGY_GATE[
+            "min_nw_tstat"]
+
+    def render(self) -> str:
+        verdict = "REAL alpha" if self.significant else "not distinguishable from beta"
+        lines = [f"Factor-neutral alpha: {verdict}",
+                 f"  alpha (annualised): {self.alpha_annualized:+.2%}",
+                 f"  alpha t-stat (NW):  {self.alpha_tstat:+.2f}"
+                 f"  (need >= {config.STRATEGY_GATE['min_nw_tstat']:.1f})",
+                 f"  R^2:                {self.r_squared:.3f}"]
+        for name, b in self.betas.items():
+            lines.append(f"  beta[{name}]:{'':<8}{b:+.3f}")
+        return "\n".join(lines)
+
+
+def factor_alpha(returns, factors: dict, periods_per_year: float) -> FactorAlpha:
+    """Regress strategy returns on factor returns; report the surviving alpha.
+
+    `factors` maps name -> per-period return series (same length as `returns`).
+    With no factors this reduces to the mean return with a Newey-West t-stat.
+    """
+    y = np.asarray(returns, dtype=float)
+    names = list(factors)
+    columns = [np.ones(y.size)] + [np.asarray(factors[k], dtype=float) for k in names]
+    X = np.column_stack(columns)
+    beta, tstats, r2 = _ols_hac(X, y)
+    alpha = float(beta[0])
+    return FactorAlpha(
+        alpha_per_period=alpha,
+        alpha_annualized=(1.0 + alpha) ** periods_per_year - 1.0,
+        alpha_tstat=float(tstats[0]),
+        betas={n: float(b) for n, b in zip(names, beta[1:])},
+        r_squared=r2, n_obs=int(y.size))

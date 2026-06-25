@@ -91,3 +91,40 @@ def test_gate_fails_when_too_few_samples():
 def test_gate_thresholds_come_from_config():
     assert set(config.STRATEGY_GATE) == {
         "min_sharpe", "min_nw_tstat", "min_dsr", "max_drawdown", "min_oos_obs"}
+
+
+# --- Factor-neutral alpha ----------------------------------------------------
+
+def test_factor_alpha_recovers_known_coefficients():
+    f = _rng(10).normal(0, 0.02, 400)
+    y = 0.003 + 1.5 * f + _rng(11).normal(0, 0.001, 400)   # alpha=0.003, beta=1.5
+    fa = verify.factor_alpha(y, {"market": f}, periods_per_year=12)
+    assert fa.alpha_per_period == pytest.approx(0.003, abs=5e-4)
+    assert fa.betas["market"] == pytest.approx(1.5, abs=0.05)
+    assert fa.r_squared > 0.95
+
+
+def test_factor_alpha_flags_disguised_beta():
+    # Strategy IS the market plus noise => no real alpha.
+    f = _rng(12).normal(0.001, 0.02, 400)
+    y = f + _rng(13).normal(0, 0.001, 400)
+    fa = verify.factor_alpha(y, {"market": f}, periods_per_year=12)
+    assert abs(fa.alpha_per_period) < 5e-4
+    assert not fa.significant                      # alpha indistinguishable from 0
+
+
+def test_factor_alpha_detects_real_alpha():
+    f = _rng(14).normal(0, 0.02, 400)
+    y = 0.004 + 0.5 * f + _rng(15).normal(0, 0.002, 400)   # strong, steady alpha
+    fa = verify.factor_alpha(y, {"market": f}, periods_per_year=12)
+    assert fa.significant
+    assert fa.alpha_tstat > 2
+    assert fa.alpha_annualized > 0
+    assert "REAL alpha" in fa.render()
+
+
+def test_factor_alpha_no_factors_matches_newey_west():
+    y = _rng(16).normal(0.002, 0.01, 200)
+    fa = verify.factor_alpha(y, {}, periods_per_year=12)
+    assert fa.alpha_per_period == pytest.approx(float(y.mean()), abs=1e-9)
+    assert fa.alpha_tstat == pytest.approx(verify.newey_west_tstat(y), rel=1e-6)
