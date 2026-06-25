@@ -57,6 +57,20 @@ TRANSACTION_COST_BPS = 5.0   # commission, per side, in basis points
 SLIPPAGE_BPS = 2.0           # assumed slippage, per side, in basis points
 TRADING_DAYS_PER_YEAR = 252
 
+# --- Strategy gate -----------------------------------------------------------
+# Numeric, agent-proof stop conditions a strategy's out-of-sample returns must
+# clear before it is allowed to trade (even on paper). The checker is statistics,
+# never an LLM's say-so. See src/verify.py. Thresholds are deliberately strict;
+# a no-edge strategy SHOULD fail this gate.
+STRATEGY_GATE = {
+    "min_sharpe": 1.0,       # annualised Sharpe of the strategy returns
+    "min_nw_tstat": 2.0,     # Newey-West (HAC) t-stat of the mean return
+    "min_dsr": 0.95,         # Deflated Sharpe: P(true Sharpe>0) after N trials
+    "max_drawdown": -0.25,   # worst tolerated drawdown (return is negative)
+    "min_oos_obs": 24,       # minimum out-of-sample periods (e.g. ~2y monthly)
+}
+
+
 # --- News --------------------------------------------------------------------
 # Google News RSS is keyless and reliable. {query} is URL-encoded at call time.
 NEWS_RSS_TEMPLATE = (
@@ -129,6 +143,7 @@ PAPER_ACCOUNT_PATH = PAPER_STATE_DIR / "paper_account.json"
 PAPER_EQUITY_PATH = PAPER_STATE_DIR / "paper_equity.csv"
 PAPER_SNAPSHOT_PATH = PAPER_STATE_DIR / "paper_snapshot.json"
 PAPER_TRADES_PATH = PAPER_STATE_DIR / "paper_trades.csv"
+RESEARCH_LOG_PATH = ROOT / "docs" / "research-log.md"
 
 # --- Deep-learning experiments (optional; needs requirements-deep.txt) ------
 # Sequence model (LSTM over a window of the SAME leak-free features the tree
