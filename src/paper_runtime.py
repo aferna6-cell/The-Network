@@ -111,6 +111,63 @@ def _record_trades(now, trades: list[dict]) -> None:
                         t["shares"], t["price"], round(t["shares"] * t["price"], 2)])
 
 
+_RESEARCH_LOG_HEADER = """# Research log — paper-trading demo
+
+Append-only record of every rebalance: what the model did and how the *previous*
+basket actually performed. This is the compounding memory of the loop — each
+entry is real data, not a forecast. Newest entries at the bottom.
+"""
+
+
+def _equity_at(ts_iso: str) -> tuple[float, float] | None:
+    """(equity, benchmark) at the last recorded tick on/before `ts_iso`."""
+    path = config.PAPER_EQUITY_PATH
+    if not ts_iso or not path.exists():
+        return None
+    found = None
+    with path.open() as f:
+        for row in csv.DictReader(f):
+            if row["timestamp"] <= ts_iso:
+                found = (float(row["equity"]), float(row["benchmark_equity"]))
+            else:
+                break
+    return found
+
+
+def _append_research_log(now, prev_rebalance, equity, bench,
+                         account: paper.PaperAccount, trades: list[dict]) -> None:
+    """Record this rebalance + the realized return of the basket that just ended."""
+    path = config.RESEARCH_LOG_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        path.write_text(_RESEARCH_LOG_HEADER, encoding="utf-8")
+
+    period = ""
+    prev = _equity_at(prev_rebalance) if prev_rebalance else None
+    if prev and prev[0] and prev[1]:
+        pr, pb = equity / prev[0] - 1, bench / prev[1] - 1
+        period = (f"- **Last basket realized:** {pr:+.2%} "
+                  f"(SPY {pb:+.2%}, excess {pr - pb:+.2%})\n")
+
+    def fmt(items):
+        return ", ".join(f"{t['ticker']} {t['shares']:g}@${t['price']:g}"
+                         for t in items) or "—"
+
+    sells = [t for t in trades if t["action"] == "SELL"]
+    buys = [t for t in trades if t["action"] == "BUY"]
+    total_ret = equity / account.starting_equity - 1 if account.starting_equity else 0.0
+    entry = (
+        f"\n## {now.date().isoformat()} — rebalance\n"
+        f"{period}"
+        f"- **New basket:** {', '.join(sorted(account.positions)) or 'all cash'}\n"
+        f"- **Sold:** {fmt(sells)}\n"
+        f"- **Bought:** {fmt(buys)}\n"
+        f"- **Equity:** ${equity:,.2f} ({total_ret:+.2%} since inception) · "
+        f"vs SPY ${bench:,.2f} ({equity - bench:+,.2f})\n")
+    with path.open("a", encoding="utf-8") as f:
+        f.write(entry)
+
+
 def _due_to_rebalance(account: paper.PaperAccount, now: datetime) -> bool:
     if not account.positions or account.last_rebalance is None:
         return True
@@ -129,6 +186,7 @@ def run_once(*, retrain: bool = False, now: datetime | None = None) -> dict:
     account.ensure_benchmark(prices)
 
     trades: list[dict] = []
+    prev_rebalance = account.last_rebalance
     if _due_to_rebalance(account, now):
         model = _get_model(hist, retrain=retrain)
         targets = target_tickers(model, hist)
@@ -139,6 +197,8 @@ def run_once(*, retrain: bool = False, now: datetime | None = None) -> dict:
     bench = account.benchmark_equity(prices)
     _record_equity(now, equity, bench)
     _record_trades(now, trades)
+    if trades:
+        _append_research_log(now, prev_rebalance, equity, bench, account, trades)
     paper.save_account(account)
 
     snapshot = {

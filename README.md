@@ -127,6 +127,34 @@ Two ways to watch the $500 forward test:
   — subscribe for a notification each trading day.
 - **Local deep-dive:** `streamlit run dashboard/app.py` for the interactive view
   (recommendations + live track record alongside the paper demo).
+- **Research log** (`docs/research-log.md`) — appended on every rebalance with the
+  realized return of the basket that just ended, plus the new buys/sells. The
+  loop's compounding memory: real data, not forecasts.
+
+## Strategy gate — statistics decide, not vibes
+
+Before a strategy is allowed to trade (even on paper), its out-of-sample returns
+must clear a **numeric, agent-proof gate** (`src/verify.py`). The checker is
+statistics, never an LLM's say-so:
+
+| Check | Why |
+|---|---|
+| Annualised Sharpe | basic risk-adjusted return |
+| Newey-West (HAC) t-stat | mean return robust to autocorrelation |
+| **Deflated Sharpe Ratio** | P(true Sharpe > 0) **after** correcting for the number of variants tried — the multiple-testing correction most backtests skip |
+| Max drawdown | tail-risk bound |
+| OOS sample size | enough data to mean anything |
+
+Thresholds live in `config.STRATEGY_GATE`. Run it on the live strategy:
+
+```bash
+python scripts/verify_strategy.py --trials 12
+```
+
+As of the current model this gate **FAILS** (Sharpe ≈ 0.85, Deflated Sharpe ≈ 0.49
+after 12 trials) — which is the honest, correct outcome. No real money trades
+until a real edge clears these numbers. Loops automate execution; they do not
+manufacture edge.
 
 ## Roadmap
 

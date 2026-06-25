@@ -83,6 +83,44 @@ def test_record_trades_skips_when_no_log_dir_needed(tmp_path, monkeypatch):
     assert not (tmp_path / "trades.csv").exists()
 
 
+def test_append_research_log_records_realized_and_trades(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "RESEARCH_LOG_PATH", tmp_path / "research-log.md")
+    monkeypatch.setattr(config, "PAPER_EQUITY_PATH", tmp_path / "eq.csv")
+    (tmp_path / "eq.csv").write_text(
+        "timestamp,equity,benchmark_equity\n"
+        "2026-06-24T00:00:00+00:00,500.0,500.0\n"
+        "2026-07-24T00:00:00+00:00,520.0,510.0\n")
+    a = _acct(500.0)
+    a.trade("NVDA", 0.4, 270.0)
+    trades = [
+        {"ticker": "NFLX", "action": "SELL", "shares": 1.3, "price": 71.0},
+        {"ticker": "NVDA", "action": "BUY", "shares": 0.4, "price": 270.0},
+    ]
+    paper_runtime._append_research_log(
+        datetime(2026, 7, 24, tzinfo=timezone.utc),
+        "2026-06-24T00:00:00+00:00", 520.0, 510.0, a, trades)
+
+    text = (tmp_path / "research-log.md").read_text()
+    assert "Research log" in text                       # header seeded
+    assert "2026-07-24 — rebalance" in text
+    assert "Last basket realized:** +4.00%" in text      # 520/500 - 1
+    assert "SPY +2.00%" in text                          # 510/500 - 1
+    assert "Sold:** NFLX 1.3@$71" in text
+    assert "Bought:** NVDA 0.4@$270" in text
+    assert "New basket:** NVDA" in text
+
+
+def test_equity_at_returns_last_on_or_before(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "PAPER_EQUITY_PATH", tmp_path / "eq.csv")
+    (tmp_path / "eq.csv").write_text(
+        "timestamp,equity,benchmark_equity\n"
+        "2026-06-24T00:00:00+00:00,500.0,500.0\n"
+        "2026-07-24T00:00:00+00:00,520.0,510.0\n")
+    assert paper_runtime._equity_at("2026-07-01T00:00:00+00:00") == (500.0, 500.0)
+    assert paper_runtime._equity_at("2099-01-01T00:00:00+00:00") == (520.0, 510.0)
+    assert paper_runtime._equity_at("") is None
+
+
 def test_persistence_round_trip(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "PAPER_ACCOUNT_PATH", tmp_path / "acct.json")
     a = _acct()
