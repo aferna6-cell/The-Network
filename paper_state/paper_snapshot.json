@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-06-25T22:49:16.988239+00:00",
+  "generated_at": "2026-06-26T22:38:32.933125+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 489.39815171520604,
+  "equity": 500.0731171885846,
   "cash": 4.653500000000008,
-  "total_return": -0.02120369656958787,
-  "benchmark_equity": 496.78641499221976,
-  "benchmark_return": -0.006427170015560479,
-  "vs_benchmark": -7.388263277013721,
+  "total_return": 0.00014623437716920762,
+  "benchmark_equity": 493.19396522562755,
+  "benchmark_return": -0.013612069548744943,
+  "vs_benchmark": 6.879151962957053,
   "holdings": [
     {
       "ticker": "AAPL",
       "shares": 0.3334,
-      "price": 275.15,
-      "value": 91.73,
+      "price": 283.78,
+      "value": 94.6,
       "cost_basis": 296.97,
-      "unrealized_pct": -0.0734754352291479
+      "unrealized_pct": -0.04441526080075442
     },
     {
       "ticker": "CRM",
       "shares": 0.6405,
-      "price": 150.19,
-      "value": 96.2,
+      "price": 158.37,
+      "value": 101.44,
       "cost_basis": 154.56,
-      "unrealized_pct": -0.028242373265180754
+      "unrealized_pct": 0.024683769531881783
     },
     {
       "ticker": "CVX",
       "shares": 0.5785,
-      "price": 172.24,
-      "value": 99.65,
+      "price": 171.06,
+      "value": 98.97,
       "cost_basis": 171.12,
-      "unrealized_pct": 0.006545114539504571
+      "unrealized_pct": -0.0003506311360449432
     },
     {
       "ticker": "NFLX",
       "shares": 1.3667,
-      "price": 70.9,
-      "value": 96.9,
+      "price": 73.81,
+      "value": 100.88,
       "cost_basis": 72.44,
-      "unrealized_pct": -0.021191412990957392
+      "unrealized_pct": 0.018982536066818545
     },
     {
       "ticker": "XOM",
       "shares": 0.7289,
-      "price": 137.55,
-      "value": 100.26,
+      "price": 136.54,
+      "value": 99.53,
       "cost_basis": 135.81,
-      "unrealized_pct": 0.0127747303317014
+      "unrealized_pct": 0.005338143798549355
     }
   ],
   "trades_this_tick": [],
