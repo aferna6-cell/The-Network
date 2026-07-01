@@ -45,7 +45,7 @@
 </style></head>
 <body><div class="wrap">
   <h1>📈 the-network — paper-trading monitor</h1>
-  <p class="sub">$500 of fake money, managed autonomously. Day 6 since
+  <p class="sub">$500 of fake money, managed autonomously. Day 7 since
     inception (2026-06-24).</p>
 
   <div class="banner">⚠️ <b>Fake money — not financial advice.</b> The equity
@@ -54,16 +54,16 @@
 
   <div class="cards">
     <div class="card"><div class="lab">Equity</div>
-      <div class="val">$494.61</div>
-      <div class="neg">-1.08%</div></div>
+      <div class="val">$503.94</div>
+      <div class="pos">+0.79%</div></div>
     <div class="card"><div class="lab">SPY $500 benchmark</div>
-      <div class="val">$505.22</div>
-      <div class="muted">+1.04%</div></div>
+      <div class="val">$504.54</div>
+      <div class="muted">+0.91%</div></div>
     <div class="card"><div class="lab">vs SPY</div>
-      <div class="val neg">$-10.61</div>
+      <div class="val neg">$-0.60</div>
       <div class="muted">behind the index</div></div>
     <div class="card"><div class="lab">Today's gain / loss</div>
-      <div class="val neg">$-2.61</div><div class="neg">-0.53%</div><div class="muted" style="font-size:12px">SPY +0.78%</div></div>
+      <div class="val pos">$+9.33</div><div class="pos">+1.89%</div><div class="muted" style="font-size:12px">SPY -0.14%</div></div>
     <div class="card"><div class="lab">Cash</div>
       <div class="val">$4.65</div></div>
   </div>
@@ -72,8 +72,8 @@
   <svg viewBox="0 0 760 300" class="chart" role="img"
      aria-label="Model equity versus SPY benchmark over time">
   <line x1="56" y1="100.5" x2="744" y2="100.5" class="base"/><text x="50" y="104.5" class="ylab" text-anchor="end">$500</text><text x="50" y="20.0" class="ylab" text-anchor="end">$505</text><text x="50" y="276.0" class="ylab" text-anchor="end">$489</text>
-  <polyline class="bench" points="56.0,100.5 154.3,108.4 252.6,164.1 350.9,164.1 449.1,152.5 547.4,210.6 645.7,79.1 744.0,16.0"/>
-  <polyline class="model" points="56.0,106.1 154.3,88.7 252.6,142.9 350.9,142.9 449.1,272.0 547.4,99.3 645.7,145.4 744.0,187.7"/>
+  <polyline class="bench" points="56.0,100.5 142.0,108.4 228.0,164.1 314.0,164.1 400.0,152.5 486.0,210.6 572.0,79.1 658.0,16.0 744.0,27.1"/>
+  <polyline class="model" points="56.0,106.1 142.0,88.7 228.0,142.9 314.0,142.9 400.0,272.0 486.0,99.3 572.0,145.4 658.0,187.7 744.0,36.7"/>
 </svg>
 <div class="legend"><span class="k model"></span>Model
   <span class="k bench"></span>SPY $500</div>
@@ -81,11 +81,11 @@
   <h2>Holdings</h2>
   <table><thead><tr><th>Ticker</th><th>Shares</th><th>Value</th>
     <th>Unrealized</th></tr></thead>
-    <tbody><tr><td>AAPL</td><td>0.3334</td><td>$96.46</td><td class="neg">-2.6%</td></tr>
-<tr><td>CRM</td><td>0.6405</td><td>$100.35</td><td class="pos">+1.4%</td></tr>
-<tr><td>CVX</td><td>0.5785</td><td>$95.90</td><td class="neg">-3.1%</td></tr>
-<tr><td>NFLX</td><td>1.3667</td><td>$97.59</td><td class="neg">-1.4%</td></tr>
-<tr><td>XOM</td><td>0.7289</td><td>$99.66</td><td class="pos">+0.7%</td></tr></tbody></table>
+    <tbody><tr><td>AAPL</td><td>0.3334</td><td>$98.14</td><td class="neg">-0.9%</td></tr>
+<tr><td>CRM</td><td>0.6405</td><td>$104.56</td><td class="pos">+5.6%</td></tr>
+<tr><td>CVX</td><td>0.5785</td><td>$95.86</td><td class="neg">-3.2%</td></tr>
+<tr><td>NFLX</td><td>1.3667</td><td>$101.40</td><td class="pos">+2.4%</td></tr>
+<tr><td>XOM</td><td>0.7289</td><td>$99.34</td><td class="pos">+0.3%</td></tr></tbody></table>
 
   <h2>Recent activity</h2>
   <table><thead><tr><th>Date</th><th>Action</th><th>Ticker</th>
@@ -98,7 +98,7 @@
   <p class="muted note">No rebalance trades logged yet — these are the opening positions bought at inception (2026-06-24). New buys/sells appear here after the first rebalance (≈ 2026-07-24).</p>
 
   <footer>
-    Last updated 2026-06-30 22:42:40 UTC · auto-refreshes every 15 min ·
+    Last updated 2026-07-01 22:42:46 UTC · auto-refreshes every 15 min ·
     daily write-up on
     <a href="https://github.com/aferna6-cell/The-Network/issues/2">issue #2</a>.<br/>
     Research and education only. Past simulated performance does not predict
