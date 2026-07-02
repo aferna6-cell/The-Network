@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-07-01T22:42:46.493947+00:00",
+  "generated_at": "2026-07-02T22:29:26.141874+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 503.9429464998407,
+  "equity": 517.888251649906,
   "cash": 4.653500000000008,
-  "total_return": 0.007885892999681454,
-  "benchmark_equity": 504.5396116636222,
-  "benchmark_return": 0.009079223327244534,
-  "vs_benchmark": -0.5966651637815517,
+  "total_return": 0.03577650329981208,
+  "benchmark_equity": 503.87659833570126,
+  "benchmark_return": 0.007753196671402618,
+  "vs_benchmark": 14.01165331420475,
   "holdings": [
     {
       "ticker": "AAPL",
       "shares": 0.3334,
-      "price": 294.38,
-      "value": 98.14,
+      "price": 308.63,
+      "value": 102.89,
       "cost_basis": 296.97,
-      "unrealized_pct": -0.008721419672020891
+      "unrealized_pct": 0.03926322524160675
     },
     {
       "ticker": "CRM",
       "shares": 0.6405,
-      "price": 163.23,
-      "value": 104.56,
+      "price": 166.11,
+      "value": 106.4,
       "cost_basis": 154.56,
-      "unrealized_pct": 0.056128886157031266
+      "unrealized_pct": 0.07476302934230539
     },
     {
       "ticker": "CVX",
       "shares": 0.5785,
-      "price": 165.69,
-      "value": 95.86,
+      "price": 169.2,
+      "value": 97.89,
       "cost_basis": 171.12,
-      "unrealized_pct": -0.031732117812061755
+      "unrealized_pct": -0.011220196353436296
     },
     {
       "ticker": "NFLX",
       "shares": 1.3667,
-      "price": 74.19,
-      "value": 101.4,
+      "price": 77.65,
+      "value": 106.13,
       "cost_basis": 72.44,
-      "unrealized_pct": 0.02422861876164828
+      "unrealized_pct": 0.07199558224615177
     },
     {
       "ticker": "XOM",
       "shares": 0.7289,
-      "price": 136.28,
-      "value": 99.34,
+      "price": 137.09,
+      "value": 99.93,
       "cost_basis": 135.81,
-      "unrealized_pct": 0.0034237749880352553
+      "unrealized_pct": 0.009387770128483686
     }
   ],
   "trades_this_tick": [],
