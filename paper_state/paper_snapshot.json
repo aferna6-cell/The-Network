@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-07-08T22:18:35.697390+00:00",
+  "generated_at": "2026-07-09T22:44:55.336884+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 523.8222601008474,
+  "equity": 518.2022584441053,
   "cash": 4.653500000000008,
-  "total_return": 0.04764452020169485,
-  "benchmark_equity": 504.2960557472431,
-  "benchmark_return": 0.008592111494486243,
-  "vs_benchmark": 19.526204353604328,
+  "total_return": 0.03640451688821056,
+  "benchmark_equity": 508.56504972599964,
+  "benchmark_return": 0.017130099451999392,
+  "vs_benchmark": 9.637208718105626,
   "holdings": [
     {
       "ticker": "AAPL",
       "shares": 0.3334,
-      "price": 313.39,
-      "value": 104.47,
+      "price": 316.22,
+      "value": 105.42,
       "cost_basis": 296.97,
-      "unrealized_pct": 0.05529178031450965
+      "unrealized_pct": 0.06482136242718117
     },
     {
       "ticker": "CRM",
       "shares": 0.6405,
-      "price": 166.58,
-      "value": 106.7,
+      "price": 162.5,
+      "value": 104.09,
       "cost_basis": 154.56,
-      "unrealized_pct": 0.07780401798712444
+      "unrealized_pct": 0.05140564847465301
     },
     {
       "ticker": "CVX",
       "shares": 0.5785,
-      "price": 175.97,
-      "value": 101.81,
+      "price": 174.05,
+      "value": 100.7,
       "cost_basis": 171.12,
-      "unrealized_pct": 0.02834268349696112
+      "unrealized_pct": 0.017122487143525156
     },
     {
       "ticker": "NFLX",
       "shares": 1.3667,
-      "price": 75.59,
-      "value": 103.31,
+      "price": 75.47,
+      "value": 103.15,
       "cost_basis": 72.44,
-      "unrealized_pct": 0.04355629184786358
+      "unrealized_pct": 0.0418996341547595
     },
     {
       "ticker": "XOM",
       "shares": 0.7289,
-      "price": 141.13,
-      "value": 102.87,
+      "price": 137.46,
+      "value": 100.2,
       "cost_basis": 135.81,
-      "unrealized_pct": 0.039134116261090535
+      "unrealized_pct": 0.012112064204984785
     }
   ],
   "trades_this_tick": [],
