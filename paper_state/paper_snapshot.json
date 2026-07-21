@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-07-20T22:15:07.715933+00:00",
+  "generated_at": "2026-07-21T22:13:37.919462+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 535.1401293577953,
+  "equity": 537.8254103938648,
   "cash": 4.653500000000008,
-  "total_return": 0.07028025871559063,
-  "benchmark_equity": 502.0566944049794,
-  "benchmark_return": 0.004113388809958707,
-  "vs_benchmark": 33.083434952815935,
+  "total_return": 0.07565082078772956,
+  "benchmark_equity": 506.2445030782762,
+  "benchmark_return": 0.012489006156552351,
+  "vs_benchmark": 31.580907315588604,
   "holdings": [
     {
       "ticker": "AAPL",
       "shares": 0.3334,
-      "price": 326.59,
-      "value": 108.87,
+      "price": 327.74,
+      "value": 109.26,
       "cost_basis": 296.97,
-      "unrealized_pct": 0.0997407145502911
+      "unrealized_pct": 0.10361315957840844
     },
     {
       "ticker": "CRM",
       "shares": 0.6405,
-      "price": 173.79,
-      "value": 111.32,
+      "price": 170.06,
+      "value": 108.93,
       "cost_basis": 154.56,
-      "unrealized_pct": 0.12445407783636875
+      "unrealized_pct": 0.10032027433599677
     },
     {
       "ticker": "CVX",
       "shares": 0.5785,
-      "price": 189.71,
-      "value": 109.76,
+      "price": 191.07,
+      "value": 110.54,
       "cost_basis": 171.12,
-      "unrealized_pct": 0.10863721365123902
+      "unrealized_pct": 0.1165848527349227
     },
     {
       "ticker": "NFLX",
       "shares": 1.3667,
-      "price": 67.6,
-      "value": 92.39,
+      "price": 68.67,
+      "value": 93.85,
       "cost_basis": 72.44,
-      "unrealized_pct": -0.06674949955132203
+      "unrealized_pct": -0.05197763512114306
     },
     {
       "ticker": "XOM",
       "shares": 0.7289,
-      "price": 148.36,
-      "value": 108.14,
+      "price": 151.71,
+      "value": 110.59,
       "cost_basis": 135.81,
-      "unrealized_pct": 0.09236829510731526
+      "unrealized_pct": 0.11703420093509553
     }
   ],
   "trades_this_tick": [],
