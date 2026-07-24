@@ -1,30 +1,30 @@
 {
-  "cash": 4.653500000000008,
+  "cash": 4.680226741923789,
   "starting_equity": 500.0,
   "inception_date": "2026-06-24",
   "positions": {
-    "NFLX": {
-      "shares": 1.366742596810934,
-      "cost_basis": 72.435
+    "ORCL": {
+      "shares": 0.9356595006229985,
+      "cost_basis": 114.99
     },
-    "XOM": {
-      "shares": 0.7289327393881383,
-      "cost_basis": 135.815
+    "GOOGL": {
+      "shares": 0.336496797324822,
+      "cost_basis": 319.74
     },
-    "CRM": {
-      "shares": 0.6405486719937886,
-      "cost_basis": 154.555
+    "DIS": {
+      "shares": 1.1343330097695161,
+      "cost_basis": 94.85
     },
-    "AAPL": {
-      "shares": 0.3333670067683604,
-      "cost_basis": 296.97
+    "PEP": {
+      "shares": 0.7874084161053763,
+      "cost_basis": 136.64
     },
-    "CVX": {
-      "shares": 0.5785413744740533,
-      "cost_basis": 171.12
+    "HD": {
+      "shares": 0.32311696190953987,
+      "cost_basis": 332.98
     }
   },
-  "last_rebalance": "2026-06-24T14:57:34.477352+00:00",
+  "last_rebalance": "2026-07-24T22:29:49.687934+00:00",
   "benchmark_ticker": "SPY",
   "benchmark_shares": 0.676544212164265
 }

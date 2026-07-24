@@ -1,55 +1,116 @@
 {
-  "generated_at": "2026-07-23T22:17:03.896916+00:00",
+  "generated_at": "2026-07-24T22:29:49.687934+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 533.4028034952518,
-  "cash": 4.653500000000008,
-  "total_return": 0.06680560699050342,
-  "benchmark_equity": 499.4114065354171,
-  "benchmark_return": -0.0011771869291657966,
-  "vs_benchmark": 33.991396959834674,
+  "equity": 542.6376566251168,
+  "cash": 4.680226741923789,
+  "total_return": 0.08527531325023374,
+  "benchmark_equity": 499.9188146945403,
+  "benchmark_return": -0.00016237061091939342,
+  "vs_benchmark": 42.71884193057656,
   "holdings": [
     {
-      "ticker": "AAPL",
-      "shares": 0.3334,
-      "price": 321.66,
-      "value": 107.23,
-      "cost_basis": 296.97,
-      "unrealized_pct": 0.08313971108192741
+      "ticker": "DIS",
+      "shares": 1.1343,
+      "price": 94.85,
+      "value": 107.59,
+      "cost_basis": 94.85,
+      "unrealized_pct": 0.0
     },
     {
-      "ticker": "CRM",
-      "shares": 0.6405,
-      "price": 156.93,
-      "value": 100.52,
-      "cost_basis": 154.56,
-      "unrealized_pct": 0.015366697939244833
+      "ticker": "GOOGL",
+      "shares": 0.3365,
+      "price": 319.74,
+      "value": 107.59,
+      "cost_basis": 319.74,
+      "unrealized_pct": 0.0
     },
     {
-      "ticker": "CVX",
-      "shares": 0.5785,
-      "price": 194.42,
-      "value": 112.48,
-      "cost_basis": 171.12,
-      "unrealized_pct": 0.1361617578307619
+      "ticker": "HD",
+      "shares": 0.3231,
+      "price": 332.98,
+      "value": 107.59,
+      "cost_basis": 332.98,
+      "unrealized_pct": 0.0
     },
+    {
+      "ticker": "ORCL",
+      "shares": 0.9357,
+      "price": 114.99,
+      "value": 107.59,
+      "cost_basis": 114.99,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "PEP",
+      "shares": 0.7874,
+      "price": 136.64,
+      "value": 107.59,
+      "cost_basis": 136.64,
+      "unrealized_pct": 0.0
+    }
+  ],
+  "trades_this_tick": [
     {
       "ticker": "NFLX",
+      "action": "SELL",
       "shares": 1.3667,
-      "price": 68.89,
-      "value": 94.15,
-      "cost_basis": 72.44,
-      "unrealized_pct": -0.048940429350452175
+      "price": 70.09
     },
     {
       "ticker": "XOM",
+      "action": "SELL",
       "shares": 0.7289,
-      "price": 156.89,
-      "value": 114.36,
-      "cost_basis": 135.81,
-      "unrealized_pct": 0.15517431800611114
+      "price": 156.94
+    },
+    {
+      "ticker": "CRM",
+      "action": "SELL",
+      "shares": 0.6405,
+      "price": 163.66
+    },
+    {
+      "ticker": "AAPL",
+      "action": "SELL",
+      "shares": 0.3334,
+      "price": 333.02
+    },
+    {
+      "ticker": "CVX",
+      "action": "SELL",
+      "shares": 0.5785,
+      "price": 194.79
+    },
+    {
+      "ticker": "ORCL",
+      "action": "BUY",
+      "shares": 0.9357,
+      "price": 114.99
+    },
+    {
+      "ticker": "GOOGL",
+      "action": "BUY",
+      "shares": 0.3365,
+      "price": 319.74
+    },
+    {
+      "ticker": "DIS",
+      "action": "BUY",
+      "shares": 1.1343,
+      "price": 94.85
+    },
+    {
+      "ticker": "PEP",
+      "action": "BUY",
+      "shares": 0.7874,
+      "price": 136.64
+    },
+    {
+      "ticker": "HD",
+      "action": "BUY",
+      "shares": 0.3231,
+      "price": 332.98
     }
   ],
-  "trades_this_tick": [],
-  "last_rebalance": "2026-06-24T14:57:34.477352+00:00"
+  "last_rebalance": "2026-07-24T22:29:49.687934+00:00"
 }
