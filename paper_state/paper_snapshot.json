@@ -1,116 +1,55 @@
 {
-  "generated_at": "2026-07-24T22:29:49.687934+00:00",
+  "generated_at": "2026-07-27T22:29:05.638663+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 542.6376566251168,
+  "equity": 555.0536826107867,
   "cash": 4.680226741923789,
-  "total_return": 0.08527531325023374,
-  "benchmark_equity": 499.9188146945403,
-  "benchmark_return": -0.00016237061091939342,
-  "vs_benchmark": 42.71884193057656,
+  "total_return": 0.11010736522157338,
+  "benchmark_equity": 500.0270617684866,
+  "benchmark_return": 5.412353697309413e-05,
+  "vs_benchmark": 55.02662084230013,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 94.85,
-      "value": 107.59,
+      "price": 96.65,
+      "value": 109.63,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.01897733263046919
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 319.74,
-      "value": 107.59,
+      "price": 326.56,
+      "value": 109.89,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.021329830487270884
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 332.98,
-      "value": 107.59,
+      "price": 336.09,
+      "value": 108.6,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.009339900294311754
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 114.99,
-      "value": 107.59,
+      "price": 119.9,
+      "value": 112.19,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.042699365162188085
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 136.64,
-      "value": 107.59,
+      "price": 139.79,
+      "value": 110.07,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.023053278688524692
     }
   ],
-  "trades_this_tick": [
-    {
-      "ticker": "NFLX",
-      "action": "SELL",
-      "shares": 1.3667,
-      "price": 70.09
-    },
-    {
-      "ticker": "XOM",
-      "action": "SELL",
-      "shares": 0.7289,
-      "price": 156.94
-    },
-    {
-      "ticker": "CRM",
-      "action": "SELL",
-      "shares": 0.6405,
-      "price": 163.66
-    },
-    {
-      "ticker": "AAPL",
-      "action": "SELL",
-      "shares": 0.3334,
-      "price": 333.02
-    },
-    {
-      "ticker": "CVX",
-      "action": "SELL",
-      "shares": 0.5785,
-      "price": 194.79
-    },
-    {
-      "ticker": "ORCL",
-      "action": "BUY",
-      "shares": 0.9357,
-      "price": 114.99
-    },
-    {
-      "ticker": "GOOGL",
-      "action": "BUY",
-      "shares": 0.3365,
-      "price": 319.74
-    },
-    {
-      "ticker": "DIS",
-      "action": "BUY",
-      "shares": 1.1343,
-      "price": 94.85
-    },
-    {
-      "ticker": "PEP",
-      "action": "BUY",
-      "shares": 0.7874,
-      "price": 136.64
-    },
-    {
-      "ticker": "HD",
-      "action": "BUY",
-      "shares": 0.3231,
-      "price": 332.98
-    }
-  ],
+  "trades_this_tick": [],
   "last_rebalance": "2026-07-24T22:29:49.687934+00:00"
 }
