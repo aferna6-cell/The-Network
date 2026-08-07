@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-05T22:29:21.440124+00:00",
+  "generated_at": "2026-08-07T01:02:50.192016+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 600.5484272812987,
+  "equity": 599.9876656541841,
   "cash": 4.680226741923789,
-  "total_return": 0.2010968545625973,
-  "benchmark_equity": 520.7969690819295,
-  "benchmark_return": 0.041593938163859034,
-  "vs_benchmark": 79.75145819936915,
+  "total_return": 0.1999753313083681,
+  "benchmark_equity": 519.9648197009675,
+  "benchmark_return": 0.03992963940193506,
+  "vs_benchmark": 80.02284595321657,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 101.76,
-      "value": 115.43,
+      "price": 104.68,
+      "value": 118.74,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.0728518713758568
+      "unrealized_pct": 0.10363732208750664
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 362.43,
-      "value": 121.96,
+      "price": 357.75,
+      "value": 120.38,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.133514730718709
+      "unrealized_pct": 0.1188778382435729
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 353.14,
-      "value": 114.11,
+      "price": 349.52,
+      "value": 112.94,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.06054417682743707
+      "unrealized_pct": 0.0496726530121927
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 144.39,
-      "value": 135.1,
+      "price": 143.47,
+      "value": 134.24,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.25567440647012774
+      "unrealized_pct": 0.24767371075745714
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 138.78,
-      "value": 109.28,
+      "price": 138.44,
+      "value": 109.01,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.01566159250585497
+      "unrealized_pct": 0.01317330210772849
     }
   ],
   "trades_this_tick": [],
