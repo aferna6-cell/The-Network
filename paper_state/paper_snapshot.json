@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-07T21:57:58.438167+00:00",
+  "generated_at": "2026-08-10T22:00:34.829122+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 604.8369498718614,
+  "equity": 605.1491382874386,
   "cash": 4.680226741923789,
-  "total_return": 0.20967389974372286,
-  "benchmark_equity": 523.1445774981395,
-  "benchmark_return": 0.04628915499627895,
-  "vs_benchmark": 81.69237237372192,
+  "total_return": 0.21029827657487732,
+  "benchmark_equity": 522.9889723293418,
+  "benchmark_return": 0.045977944658683656,
+  "vs_benchmark": 82.16016595809685,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 104.91,
-      "value": 119.0,
+      "price": 103.18,
+      "value": 117.04,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.10606220347917761
+      "unrealized_pct": 0.08782287822878243
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 354.3,
-      "value": 119.22,
+      "price": 357.52,
+      "value": 120.3,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.10808782135485084
+      "unrealized_pct": 0.11815850378432469
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 355.62,
-      "value": 114.91,
+      "price": 350.78,
+      "value": 113.34,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.06799207159589149
+      "unrealized_pct": 0.05345666406390759
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 147.02,
-      "value": 137.56,
+      "price": 151.05,
+      "value": 141.33,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.27854596051830605
+      "unrealized_pct": 0.31359248630315695
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 139.02,
-      "value": 109.47,
+      "price": 137.73,
+      "value": 108.45,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.017418032786885362
+      "unrealized_pct": 0.007977166276346592
     }
   ],
   "trades_this_tick": [],
