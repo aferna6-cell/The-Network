@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-12T22:05:57.510258+00:00",
+  "generated_at": "2026-08-13T22:05:26.334454+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 600.9656835612047,
+  "equity": 607.410521431747,
   "cash": 4.680226741923789,
-  "total_return": 0.20193136712240944,
-  "benchmark_equity": 522.6236384547731,
-  "benchmark_return": 0.04524727690954622,
-  "vs_benchmark": 78.34204510643167,
+  "total_return": 0.21482104286349402,
+  "benchmark_equity": 526.2702117583384,
+  "benchmark_return": 0.05254042351667687,
+  "vs_benchmark": 81.14030967340864,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 103.22,
-      "value": 117.09,
+      "price": 104.8,
+      "value": 118.88,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.08824459673168161
+      "unrealized_pct": 0.10490247759620464
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 343.54,
-      "value": 115.6,
+      "price": 346.36,
+      "value": 116.55,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.07443547882654666
+      "unrealized_pct": 0.08325514480515417
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 343.43,
-      "value": 110.97,
+      "price": 341.7,
+      "value": 110.41,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.031383266262237974
+      "unrealized_pct": 0.02618775902456605
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 153.28,
-      "value": 143.42,
+      "price": 156.22,
+      "value": 146.17,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.33298547699799985
+      "unrealized_pct": 0.3585529176450126
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 138.7,
-      "value": 109.21,
+      "price": 140.62,
+      "value": 110.73,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.0150761124121781
+      "unrealized_pct": 0.029127634660421675
     }
   ],
   "trades_this_tick": [],
