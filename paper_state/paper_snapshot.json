@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-17T21:43:32.034407+00:00",
+  "generated_at": "2026-08-18T21:41:34.732271+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 593.0791558315727,
+  "equity": 591.4074456643236,
   "cash": 4.680226741923789,
-  "total_return": 0.18615831166314556,
-  "benchmark_equity": 522.7454164129626,
-  "benchmark_return": 0.045490832825925365,
-  "vs_benchmark": 70.3337394186101,
+  "total_return": 0.18281489132864737,
+  "benchmark_equity": 519.2138556254652,
+  "benchmark_return": 0.03842771125093036,
+  "vs_benchmark": 72.19359003885847,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 103.5,
-      "value": 117.4,
+      "price": 103.95,
+      "value": 117.91,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.09119662625197678
+      "unrealized_pct": 0.09594095940959413
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 344.0,
-      "value": 115.75,
+      "price": 344.2,
+      "value": 115.82,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.07587414774504286
+      "unrealized_pct": 0.07649965597047603
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 337.88,
-      "value": 109.17,
+      "price": 337.49,
+      "value": 109.05,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.014715598534446483
+      "unrealized_pct": 0.013544357018439479
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 146.65,
-      "value": 137.21,
+      "price": 142.79,
+      "value": 133.6,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.27532828941647103
+      "unrealized_pct": 0.24176015305678744
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 138.24,
-      "value": 108.85,
+      "price": 140.13,
+      "value": 110.34,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.011709601873536535
+      "unrealized_pct": 0.025541569086651172
     }
   ],
   "trades_this_tick": [],
