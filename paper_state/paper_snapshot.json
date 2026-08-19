@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-18T21:41:34.732271+00:00",
+  "generated_at": "2026-08-19T21:43:33.400915+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 591.4074456643236,
+  "equity": 600.0466861887434,
   "cash": 4.680226741923789,
-  "total_return": 0.18281489132864737,
-  "benchmark_equity": 519.2138556254652,
-  "benchmark_return": 0.03842771125093036,
-  "vs_benchmark": 72.19359003885847,
+  "total_return": 0.2000933723774867,
+  "benchmark_equity": 520.3030918070496,
+  "benchmark_return": 0.04060618361409918,
+  "vs_benchmark": 79.74359438169381,
   "holdings": [
     {
       "ticker": "DIS",
       "shares": 1.1343,
-      "price": 103.95,
-      "value": 117.91,
+      "price": 106.93,
+      "value": 121.29,
       "cost_basis": 94.85,
-      "unrealized_pct": 0.09594095940959413
+      "unrealized_pct": 0.1273589878755932
     },
     {
       "ticker": "GOOGL",
       "shares": 0.3365,
-      "price": 344.2,
-      "value": 115.82,
+      "price": 344.72,
+      "value": 116.0,
       "cost_basis": 319.74,
-      "unrealized_pct": 0.07649965597047603
+      "unrealized_pct": 0.07812597735660232
     },
     {
       "ticker": "HD",
       "shares": 0.3231,
-      "price": 337.49,
-      "value": 109.05,
+      "price": 344.3,
+      "value": 111.25,
       "cost_basis": 332.98,
-      "unrealized_pct": 0.013544357018439479
+      "unrealized_pct": 0.033996035797945856
     },
     {
       "ticker": "ORCL",
       "shares": 0.9357,
-      "price": 142.79,
-      "value": 133.6,
+      "price": 143.81,
+      "value": 134.56,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.24176015305678744
+      "unrealized_pct": 0.250630489607792
     },
     {
       "ticker": "PEP",
       "shares": 0.7874,
-      "price": 140.13,
-      "value": 110.34,
+      "price": 142.58,
+      "value": 112.27,
       "cost_basis": 136.64,
-      "unrealized_pct": 0.025541569086651172
+      "unrealized_pct": 0.043471896955503686
     }
   ],
   "trades_this_tick": [],
