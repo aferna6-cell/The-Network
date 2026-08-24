@@ -1,30 +1,30 @@
 {
-  "cash": 4.680226741923789,
+  "cash": 5.364875792077854,
   "starting_equity": 500.0,
   "inception_date": "2026-06-24",
   "positions": {
     "ORCL": {
-      "shares": 0.9356595006229985,
+      "shares": 0.8388393416176511,
       "cost_basis": 114.99
     },
-    "GOOGL": {
-      "shares": 0.336496797324822,
-      "cost_basis": 319.74
+    "MSFT": {
+      "shares": 0.24520872588995585,
+      "cost_basis": 487.31
     },
-    "DIS": {
-      "shares": 1.1343330097695161,
-      "cost_basis": 94.85
+    "META": {
+      "shares": 0.2137538267207513,
+      "cost_basis": 559.02
     },
-    "PEP": {
-      "shares": 0.7874084161053763,
-      "cost_basis": 136.64
+    "CRM": {
+      "shares": 0.5715711480600516,
+      "cost_basis": 209.06
     },
-    "HD": {
-      "shares": 0.32311696190953987,
-      "cost_basis": 332.98
+    "MRK": {
+      "shares": 0.7931279982306809,
+      "cost_basis": 150.66
     }
   },
-  "last_rebalance": "2026-07-24T22:29:49.687934+00:00",
+  "last_rebalance": "2026-08-24T21:46:36.587301+00:00",
   "benchmark_ticker": "SPY",
   "benchmark_shares": 0.676544212164265
 }
