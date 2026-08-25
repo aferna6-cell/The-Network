@@ -1,110 +1,55 @@
 {
-  "generated_at": "2026-08-24T21:46:36.587301+00:00",
+  "generated_at": "2026-08-25T21:46:19.993551+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 602.8281968592498,
+  "equity": 610.8685551818255,
   "cash": 5.364875792077854,
-  "total_return": 0.20565639371849964,
-  "benchmark_equity": 516.5212096610514,
-  "benchmark_return": 0.033042419322102834,
-  "vs_benchmark": 86.30698719819839,
+  "total_return": 0.22173711036365096,
+  "benchmark_equity": 518.1719775387321,
+  "benchmark_return": 0.03634395507746424,
+  "vs_benchmark": 92.6965776430934,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 209.06,
-      "value": 119.49,
+      "price": 205.69,
+      "value": 117.57,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.0
+      "unrealized_pct": -0.016119774227494554
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 559.02,
-      "value": 119.49,
+      "price": 570.05,
+      "value": 121.85,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.019730957747486677
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 150.66,
-      "value": 119.49,
+      "price": 156.45,
+      "value": 124.08,
       "cost_basis": 150.66,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.03843090402230187
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 487.31,
-      "value": 119.49,
+      "price": 491.71,
+      "value": 120.57,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.009029160082903998
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 142.45,
-      "value": 119.49,
+      "price": 144.76,
+      "value": 121.43,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.2388033742064526
+      "unrealized_pct": 0.25889207757196275
     }
   ],
-  "trades_this_tick": [
-    {
-      "ticker": "GOOGL",
-      "action": "SELL",
-      "shares": 0.3365,
-      "price": 348.06
-    },
-    {
-      "ticker": "DIS",
-      "action": "SELL",
-      "shares": 1.1343,
-      "price": 110.61
-    },
-    {
-      "ticker": "PEP",
-      "action": "SELL",
-      "shares": 0.7874,
-      "price": 144.67
-    },
-    {
-      "ticker": "HD",
-      "action": "SELL",
-      "shares": 0.3231,
-      "price": 337.43
-    },
-    {
-      "ticker": "MSFT",
-      "action": "BUY",
-      "shares": 0.2452,
-      "price": 487.31
-    },
-    {
-      "ticker": "ORCL",
-      "action": "SELL",
-      "shares": 0.0968,
-      "price": 142.45
-    },
-    {
-      "ticker": "META",
-      "action": "BUY",
-      "shares": 0.2138,
-      "price": 559.02
-    },
-    {
-      "ticker": "CRM",
-      "action": "BUY",
-      "shares": 0.5716,
-      "price": 209.06
-    },
-    {
-      "ticker": "MRK",
-      "action": "BUY",
-      "shares": 0.7931,
-      "price": 150.66
-    }
-  ],
+  "trades_this_tick": [],
   "last_rebalance": "2026-08-24T21:46:36.587301+00:00"
 }
