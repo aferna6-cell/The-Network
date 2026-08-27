@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-25T21:46:19.993551+00:00",
+  "generated_at": "2026-08-27T00:50:54.170718+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 610.8685551818255,
+  "equity": 614.0636295688137,
   "cash": 5.364875792077854,
-  "total_return": 0.22173711036365096,
-  "benchmark_equity": 518.1719775387321,
-  "benchmark_return": 0.03634395507746424,
-  "vs_benchmark": 92.6965776430934,
+  "total_return": 0.22812725913762733,
+  "benchmark_equity": 518.2869900548002,
+  "benchmark_return": 0.036573980109600335,
+  "vs_benchmark": 95.77663951401348,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 205.69,
-      "value": 117.57,
+      "price": 205.62,
+      "value": 117.53,
       "cost_basis": 209.06,
-      "unrealized_pct": -0.016119774227494554
+      "unrealized_pct": -0.016454606333110133
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 570.05,
-      "value": 121.85,
+      "price": 576.14,
+      "value": 123.15,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.019730957747486677
+      "unrealized_pct": 0.03062502236055953
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 156.45,
-      "value": 124.08,
+      "price": 153.1,
+      "value": 121.43,
       "cost_basis": 150.66,
-      "unrealized_pct": 0.03843090402230187
+      "unrealized_pct": 0.016195406876410523
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 491.71,
-      "value": 120.57,
+      "price": 496.37,
+      "value": 121.71,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.009029160082903998
+      "unrealized_pct": 0.018591861443434388
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 144.76,
-      "value": 121.43,
+      "price": 148.87,
+      "value": 124.88,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.25889207757196275
+      "unrealized_pct": 0.2946343160274807
     }
   ],
   "trades_this_tick": [],
