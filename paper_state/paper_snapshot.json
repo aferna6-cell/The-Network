@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-08-27T00:50:54.170718+00:00",
+  "generated_at": "2026-08-28T05:27:07.607055+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 614.0636295688137,
+  "equity": 641.4069236196179,
   "cash": 5.364875792077854,
-  "total_return": 0.22812725913762733,
-  "benchmark_equity": 518.2869900548002,
-  "benchmark_return": 0.036573980109600335,
-  "vs_benchmark": 95.77663951401348,
+  "total_return": 0.28281384723923586,
+  "benchmark_equity": 521.6832419998648,
+  "benchmark_return": 0.043366483999729644,
+  "vs_benchmark": 119.72368161975317,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 205.62,
-      "value": 117.53,
+      "price": 252.05,
+      "value": 144.06,
       "cost_basis": 209.06,
-      "unrealized_pct": -0.016454606333110133
+      "unrealized_pct": 0.20563474600593135
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 576.14,
-      "value": 123.15,
+      "price": 571.1,
+      "value": 122.07,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.03062502236055953
+      "unrealized_pct": 0.021609244749740686
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 153.1,
-      "value": 121.43,
+      "price": 149.54,
+      "value": 118.6,
       "cost_basis": 150.66,
-      "unrealized_pct": 0.016195406876410523
+      "unrealized_pct": -0.007433957254745827
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 496.37,
-      "value": 121.71,
+      "price": 505.06,
+      "value": 123.85,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.018591861443434388
+      "unrealized_pct": 0.03642445260716998
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 148.87,
-      "value": 124.88,
+      "price": 151.94,
+      "value": 127.45,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.2946343160274807
+      "unrealized_pct": 0.3213322897643274
     }
   ],
   "trades_this_tick": [],
