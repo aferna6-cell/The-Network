@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-09-01T00:39:44.034503+00:00",
+  "generated_at": "2026-09-01T23:21:07.307114+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 641.5794246461237,
+  "equity": 636.8156571465232,
   "cash": 5.364875792077854,
-  "total_return": 0.28315884929224744,
-  "benchmark_equity": 518.9432379405994,
-  "benchmark_return": 0.037886475881198756,
-  "vs_benchmark": 122.63618670552432,
+  "total_return": 0.27363131429304643,
+  "benchmark_equity": 515.3778499424938,
+  "benchmark_return": 0.03075569988498761,
+  "vs_benchmark": 121.43780720402947,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 257.54,
-      "value": 147.2,
+      "price": 258.11,
+      "value": 147.53,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.23189514971778435
+      "unrealized_pct": 0.23462163972065442
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 572.34,
-      "value": 122.34,
+      "price": 578.54,
+      "value": 123.67,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.02382741225716445
+      "unrealized_pct": 0.03491824979428282
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 147.76,
-      "value": 117.19,
+      "price": 149.86,
+      "value": 118.86,
       "cost_basis": 150.66,
-      "unrealized_pct": -0.019248639320323946
+      "unrealized_pct": -0.005309969467675479
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 507.29,
-      "value": 124.39,
+      "price": 501.02,
+      "value": 122.85,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.041000595103732884
+      "unrealized_pct": 0.028134041985594438
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 149.12,
-      "value": 125.09,
+      "price": 141.32,
+      "value": 118.54,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.29680841812331527
+      "unrealized_pct": 0.22897643273328105
     }
   ],
   "trades_this_tick": [],
