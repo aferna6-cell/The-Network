@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-09-14T23:53:50.218260+00:00",
+  "generated_at": "2026-09-15T23:32:42.138951+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 656.1932067672055,
+  "equity": 648.4265428909882,
   "cash": 5.364875792077854,
-  "total_return": 0.312386413534411,
-  "benchmark_equity": 514.7689601515459,
-  "benchmark_return": 0.02953792030309188,
-  "vs_benchmark": 141.42424661565963,
+  "total_return": 0.29685308578197644,
+  "benchmark_equity": 512.4078208510927,
+  "benchmark_return": 0.0248156417021852,
+  "vs_benchmark": 136.01872203989558,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 259.43,
-      "value": 148.28,
+      "price": 255.65,
+      "value": 146.12,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.24093561656940587
+      "unrealized_pct": 0.22285468286616283
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 665.6,
-      "value": 142.27,
+      "price": 670.24,
+      "value": 143.27,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.1906550749525957
+      "unrealized_pct": 0.19895531465779404
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 144.85,
-      "value": 114.88,
+      "price": 143.79,
+      "value": 114.04,
       "cost_basis": 150.66,
-      "unrealized_pct": -0.0385636532589938
+      "unrealized_pct": -0.045599362803663945
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 505.41,
-      "value": 123.93,
+      "price": 497.12,
+      "value": 121.9,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.03714268125012832
+      "unrealized_pct": 0.020130922821202102
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 144.79,
-      "value": 121.46,
+      "price": 140.35,
+      "value": 117.73,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.2591529698234629
+      "unrealized_pct": 0.2205409166014436
     }
   ],
   "trades_this_tick": [],
