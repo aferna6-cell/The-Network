@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-09-22T00:09:59.205369+00:00",
+  "generated_at": "2026-09-22T23:37:06.251478+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 665.1294392239244,
+  "equity": 663.1107146804421,
   "cash": 5.364875792077854,
-  "total_return": 0.3302588784478486,
-  "benchmark_equity": 523.3069481090589,
-  "benchmark_return": 0.046613896218117734,
-  "vs_benchmark": 141.82249111486544,
+  "total_return": 0.3262214293608843,
+  "benchmark_equity": 523.2257628035992,
+  "benchmark_return": 0.04645152560719845,
+  "vs_benchmark": 139.88495187684293,
   "holdings": [
     {
       "ticker": "CRM",
       "shares": 0.5716,
-      "price": 236.42,
-      "value": 135.13,
+      "price": 233.28,
+      "value": 133.34,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1308715201377595
+      "unrealized_pct": 0.11585190854300209
     },
     {
       "ticker": "META",
       "shares": 0.2138,
-      "price": 741.25,
-      "value": 158.44,
+      "price": 736.6,
+      "value": 157.45,
       "cost_basis": 559.02,
-      "unrealized_pct": 0.32597223712926193
+      "unrealized_pct": 0.3176541089764231
     },
     {
       "ticker": "MRK",
       "shares": 0.7931,
-      "price": 149.5,
-      "value": 118.57,
+      "price": 150.91,
+      "value": 119.69,
       "cost_basis": 150.66,
-      "unrealized_pct": -0.007699455728129578
+      "unrealized_pct": 0.0016593654586485318
     },
     {
       "ticker": "MSFT",
       "shares": 0.2452,
-      "price": 501.61,
-      "value": 123.0,
+      "price": 498.0,
+      "value": 122.11,
       "cost_basis": 487.31,
-      "unrealized_pct": 0.02934477026943827
+      "unrealized_pct": 0.0219367548377829
     },
     {
       "ticker": "ORCL",
       "shares": 0.8388,
-      "price": 148.56,
-      "value": 124.62,
+      "price": 149.2,
+      "value": 125.15,
       "cost_basis": 114.99,
-      "unrealized_pct": 0.291938429428646
+      "unrealized_pct": 0.2975041307939821
     }
   ],
   "trades_this_tick": [],
