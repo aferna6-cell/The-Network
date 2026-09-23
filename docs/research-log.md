@@ -23,3 +23,10 @@ entry is real data, not a forecast. Newest entries at the bottom.
 - **Sold:** GOOGL 0.3365@$348.06, DIS 1.1343@$110.61, PEP 0.7874@$144.67, HD 0.3231@$337.43, ORCL 0.0968@$142.45
 - **Bought:** MSFT 0.2452@$487.31, META 0.2138@$559.02, CRM 0.5716@$209.06, MRK 0.7931@$150.66
 - **Equity:** $602.83 (+20.57% since inception) · vs SPY $516.52 (+86.31)
+
+## 2026-09-23 — rebalance
+- **Last basket realized:** +9.64% (SPY +0.57%, excess +9.07%)
+- **New basket:** BAC, CRM, CSCO, CVX, UNH
+- **Sold:** ORCL 0.8388@$144.56, MSFT 0.2452@$500.59, META 0.2138@$744.1, MRK 0.7931@$148.08, CRM 0.0201@$237.58
+- **Bought:** CSCO 1.231@$106.43, BAC 2.3395@$56, UNH 0.3529@$371.29, CVX 0.6375@$205.51
+- **Equity:** $660.94 (+32.19% since inception) · vs SPY $519.46 (+141.48)
