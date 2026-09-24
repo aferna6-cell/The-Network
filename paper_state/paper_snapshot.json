@@ -1,110 +1,55 @@
 {
-  "generated_at": "2026-09-23T23:45:07.536347+00:00",
+  "generated_at": "2026-09-24T23:53:57.214631+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 660.9364797989858,
+  "equity": 663.4261651019751,
   "cash": 5.8821730614558305,
-  "total_return": 0.3218729595979717,
-  "benchmark_equity": 519.4574115418443,
-  "benchmark_return": 0.038914823083688654,
-  "vs_benchmark": 141.47906825714153,
+  "total_return": 0.3268523302039503,
+  "benchmark_equity": 519.0311886881808,
+  "benchmark_return": 0.038062377376361534,
+  "vs_benchmark": 144.39497641379432,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 56.0,
-      "value": 131.01,
+      "price": 56.03,
+      "value": 131.08,
       "cost_basis": 56.0,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.000535714285714306
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 237.58,
-      "value": 131.01,
+      "price": 238.22,
+      "value": 131.36,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1364201664593896
+      "unrealized_pct": 0.13948148856787523
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 106.43,
-      "value": 131.01,
+      "price": 106.97,
+      "value": 131.68,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.005073757399229439
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 205.51,
-      "value": 131.01,
+      "price": 205.65,
+      "value": 131.1,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.0006812320568343466
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 371.29,
-      "value": 131.01,
+      "price": 375.01,
+      "value": 132.32,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.010019122518785784
     }
   ],
-  "trades_this_tick": [
-    {
-      "ticker": "ORCL",
-      "action": "SELL",
-      "shares": 0.8388,
-      "price": 144.56
-    },
-    {
-      "ticker": "MSFT",
-      "action": "SELL",
-      "shares": 0.2452,
-      "price": 500.59
-    },
-    {
-      "ticker": "META",
-      "action": "SELL",
-      "shares": 0.2138,
-      "price": 744.1
-    },
-    {
-      "ticker": "MRK",
-      "action": "SELL",
-      "shares": 0.7931,
-      "price": 148.08
-    },
-    {
-      "ticker": "CRM",
-      "action": "SELL",
-      "shares": 0.0201,
-      "price": 237.58
-    },
-    {
-      "ticker": "CSCO",
-      "action": "BUY",
-      "shares": 1.231,
-      "price": 106.43
-    },
-    {
-      "ticker": "BAC",
-      "action": "BUY",
-      "shares": 2.3395,
-      "price": 56.0
-    },
-    {
-      "ticker": "UNH",
-      "action": "BUY",
-      "shares": 0.3529,
-      "price": 371.29
-    },
-    {
-      "ticker": "CVX",
-      "action": "BUY",
-      "shares": 0.6375,
-      "price": 205.51
-    }
-  ],
+  "trades_this_tick": [],
   "last_rebalance": "2026-09-23T23:45:07.536347+00:00"
 }
