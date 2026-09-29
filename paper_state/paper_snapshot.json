@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-09-25T23:57:50.594138+00:00",
+  "generated_at": "2026-09-29T01:01:36.243445+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 662.1377326431495,
+  "equity": 657.248719665618,
   "cash": 5.8821730614558305,
-  "total_return": 0.32427546528629914,
-  "benchmark_equity": 521.8523780529058,
-  "benchmark_return": 0.043704756105811704,
-  "vs_benchmark": 140.28535459024374,
+  "total_return": 0.31449743933123586,
+  "benchmark_equity": 517.9690142750829,
+  "benchmark_return": 0.03593802855016581,
+  "vs_benchmark": 139.279705390535,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 56.7,
-      "value": 132.65,
+      "price": 55.47,
+      "value": 129.77,
       "cost_basis": 56.0,
-      "unrealized_pct": 0.012499999999999956
+      "unrealized_pct": -0.009464285714285703
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 234.02,
-      "value": 129.05,
+      "price": 227.27,
+      "value": 125.33,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1193915622309385
+      "unrealized_pct": 0.0871041806180044
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 106.7,
-      "value": 131.34,
+      "price": 106.74,
+      "value": 131.39,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.0025368786996147197
+      "unrealized_pct": 0.0029127125810390897
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 204.45,
-      "value": 130.34,
+      "price": 206.37,
+      "value": 131.56,
       "cost_basis": 205.51,
-      "unrealized_pct": -0.0051578998588877045
+      "unrealized_pct": 0.0041847112062674
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 376.59,
-      "value": 132.88,
+      "price": 377.83,
+      "value": 133.32,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.014274556276764772
+      "unrealized_pct": 0.01761426378302655
     }
   ],
   "trades_this_tick": [],
