@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-03T00:32:31.457479+00:00",
+  "generated_at": "2026-10-06T01:46:39.740422+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 662.1491000927142,
+  "equity": 663.0119244182406,
   "cash": 5.8821730614558305,
-  "total_return": 0.32429820018542843,
-  "benchmark_equity": 520.6954874501049,
-  "benchmark_return": 0.04139097490020971,
-  "vs_benchmark": 141.4536126426093,
+  "total_return": 0.3260238488364813,
+  "benchmark_equity": 524.2067519112375,
+  "benchmark_return": 0.04841350382247489,
+  "vs_benchmark": 138.80517250700314,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 53.75,
-      "value": 125.75,
+      "price": 54.0,
+      "value": 126.33,
       "cost_basis": 56.0,
-      "unrealized_pct": -0.0401785714285714
+      "unrealized_pct": -0.0357142857142857
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 234.69,
-      "value": 129.42,
+      "price": 229.79,
+      "value": 126.72,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.12259638381325932
+      "unrealized_pct": 0.09915813642016635
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 112.2,
-      "value": 138.11,
+      "price": 112.82,
+      "value": 138.88,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.05421403739547115
+      "unrealized_pct": 0.06003946255754933
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 206.69,
-      "value": 131.76,
+      "price": 206.47,
+      "value": 131.62,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.005741813050459843
+      "unrealized_pct": 0.004671305532577552
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 371.9,
-      "value": 131.23,
+      "price": 378.58,
+      "value": 133.58,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.0016429206280803577
+      "unrealized_pct": 0.01963424816181414
     }
   ],
   "trades_this_tick": [],
