@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-14T23:57:29.038140+00:00",
+  "generated_at": "2026-10-15T23:42:21.181338+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 677.2504916348148,
+  "equity": 681.4254766373567,
   "cash": 5.8821730614558305,
-  "total_return": 0.35450098326962953,
-  "benchmark_equity": 520.6684256816184,
-  "benchmark_return": 0.04133685136323684,
-  "vs_benchmark": 156.58206595319643,
+  "total_return": 0.3628509532747135,
+  "benchmark_equity": 522.150057506258,
+  "benchmark_return": 0.04430011501251596,
+  "vs_benchmark": 159.27541913109872,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 51.39,
-      "value": 120.23,
+      "price": 51.7,
+      "value": 120.95,
       "cost_basis": 56.0,
-      "unrealized_pct": -0.08232142857142855
+      "unrealized_pct": -0.07678571428571423
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 235.95,
-      "value": 130.11,
+      "price": 246.74,
+      "value": 136.06,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1286233617143404
+      "unrealized_pct": 0.1802353391370899
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 113.64,
-      "value": 139.89,
+      "price": 109.85,
+      "value": 135.22,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.06774405712675002
+      "unrealized_pct": 0.03213379686178697
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 222.04,
-      "value": 141.55,
+      "price": 219.32,
+      "value": 139.81,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.08043404213906857
+      "unrealized_pct": 0.06719867646343247
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 395.62,
-      "value": 139.6,
+      "price": 406.67,
+      "value": 143.49,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.06552829324786558
+      "unrealized_pct": 0.09528939642866763
     }
   ],
   "trades_this_tick": [],
