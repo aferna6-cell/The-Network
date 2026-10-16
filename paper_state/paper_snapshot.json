@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-15T23:42:21.181338+00:00",
+  "generated_at": "2026-10-16T23:39:00.932902+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 681.4254766373567,
+  "equity": 675.7326989543719,
   "cash": 5.8821730614558305,
-  "total_return": 0.3628509532747135,
-  "benchmark_equity": 522.150057506258,
-  "benchmark_return": 0.04430011501251596,
-  "vs_benchmark": 159.27541913109872,
+  "total_return": 0.35146539790874387,
+  "benchmark_equity": 516.3723699343752,
+  "benchmark_return": 0.03274473986875037,
+  "vs_benchmark": 159.3603290199967,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 51.7,
-      "value": 120.95,
+      "price": 51.23,
+      "value": 119.85,
       "cost_basis": 56.0,
-      "unrealized_pct": -0.07678571428571423
+      "unrealized_pct": -0.08517857142857144
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 246.74,
-      "value": 136.06,
+      "price": 240.7,
+      "value": 132.73,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1802353391370899
+      "unrealized_pct": 0.1513441117382568
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 109.85,
-      "value": 135.22,
+      "price": 107.39,
+      "value": 132.19,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.03213379686178697
+      "unrealized_pct": 0.009020013154185769
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 219.32,
-      "value": 139.81,
+      "price": 224.99,
+      "value": 143.43,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.06719867646343247
+      "unrealized_pct": 0.0947885747652184
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 406.67,
-      "value": 143.49,
+      "price": 401.43,
+      "value": 141.65,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.09528939642866763
+      "unrealized_pct": 0.08117643890220583
     }
   ],
   "trades_this_tick": [],
