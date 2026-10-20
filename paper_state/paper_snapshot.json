@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-16T23:39:00.932902+00:00",
+  "generated_at": "2026-10-20T00:24:42.325810+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 675.7326989543719,
+  "equity": 675.1648067451108,
   "cash": 5.8821730614558305,
-  "total_return": 0.35146539790874387,
-  "benchmark_equity": 516.3723699343752,
-  "benchmark_return": 0.03274473986875037,
-  "vs_benchmark": 159.3603290199967,
+  "total_return": 0.3503296134902216,
+  "benchmark_equity": 518.5576077396659,
+  "benchmark_return": 0.03711521547933172,
+  "vs_benchmark": 156.60719900544495,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 51.23,
-      "value": 119.85,
+      "price": 50.39,
+      "value": 117.89,
       "cost_basis": 56.0,
-      "unrealized_pct": -0.08517857142857144
+      "unrealized_pct": -0.10017857142857145
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 240.7,
-      "value": 132.73,
+      "price": 242.45,
+      "value": 133.7,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.1513441117382568
+      "unrealized_pct": 0.15971491437864715
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 107.39,
-      "value": 132.19,
+      "price": 106.5,
+      "value": 131.1,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.009020013154185769
+      "unrealized_pct": 0.0006577092924926475
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 224.99,
-      "value": 143.43,
+      "price": 224.37,
+      "value": 143.03,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.0947885747652184
+      "unrealized_pct": 0.09177168994209528
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 401.43,
-      "value": 141.65,
+      "price": 406.88,
+      "value": 143.57,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.08117643890220583
+      "unrealized_pct": 0.09585499205472803
     }
   ],
   "trades_this_tick": [],
