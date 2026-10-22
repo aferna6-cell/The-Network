@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-20T23:56:26.936217+00:00",
+  "generated_at": "2026-10-22T00:01:30.734892+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 681.2197100729493,
+  "equity": 681.7504964335187,
   "cash": 5.8821730614558305,
-  "total_return": 0.36243942014589847,
-  "benchmark_equity": 520.296326364928,
-  "benchmark_return": 0.040592652729855905,
-  "vs_benchmark": 160.92338370802133,
+  "total_return": 0.3635009928670374,
+  "benchmark_equity": 523.0295649820716,
+  "benchmark_return": 0.0460591299641433,
+  "vs_benchmark": 158.7209314514471,
   "holdings": [
     {
       "ticker": "BAC",
       "shares": 2.3395,
-      "price": 50.64,
-      "value": 118.47,
+      "price": 50.78,
+      "value": 118.8,
       "cost_basis": 56.0,
-      "unrealized_pct": -0.09571428571428575
+      "unrealized_pct": -0.0932142857142857
     },
     {
       "ticker": "CRM",
       "shares": 0.5514,
-      "price": 242.43,
-      "value": 133.69,
+      "price": 241.78,
+      "value": 133.33,
       "cost_basis": 209.06,
-      "unrealized_pct": 0.15961924806275718
+      "unrealized_pct": 0.15651009279632633
     },
     {
       "ticker": "CSCO",
       "shares": 1.231,
-      "price": 106.71,
-      "value": 131.36,
+      "price": 107.26,
+      "value": 132.03,
       "cost_basis": 106.43,
-      "unrealized_pct": 0.002630837169970812
+      "unrealized_pct": 0.007798553039556566
     },
     {
       "ticker": "CVX",
       "shares": 0.6375,
-      "price": 225.71,
-      "value": 143.89,
+      "price": 226.78,
+      "value": 144.57,
       "cost_basis": 205.51,
-      "unrealized_pct": 0.09829205391465146
+      "unrealized_pct": 0.10349861320617015
     },
     {
       "ticker": "UNH",
       "shares": 0.3529,
-      "price": 419.26,
-      "value": 147.94,
+      "price": 417.0,
+      "value": 147.14,
       "cost_basis": 371.29,
-      "unrealized_pct": 0.12919820086724654
+      "unrealized_pct": 0.12311131460583358
     }
   ],
   "trades_this_tick": [],
