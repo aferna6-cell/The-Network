@@ -1,55 +1,116 @@
 {
-  "generated_at": "2026-10-22T00:01:30.734892+00:00",
+  "generated_at": "2026-10-23T00:00:21.288696+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 681.7504964335187,
-  "cash": 5.8821730614558305,
-  "total_return": 0.3635009928670374,
-  "benchmark_equity": 523.0295649820716,
-  "benchmark_return": 0.0460591299641433,
-  "vs_benchmark": 158.7209314514471,
+  "equity": 686.026889224078,
+  "cash": 5.916952095752663,
+  "total_return": 0.3720537784481559,
+  "benchmark_equity": 516.8527163250119,
+  "benchmark_return": 0.0337054326500239,
+  "vs_benchmark": 169.1741728990661,
   "holdings": [
     {
-      "ticker": "BAC",
-      "shares": 2.3395,
-      "price": 50.78,
-      "value": 118.8,
-      "cost_basis": 56.0,
-      "unrealized_pct": -0.0932142857142857
+      "ticker": "AMD",
+      "shares": 0.2678,
+      "price": 507.93,
+      "value": 136.02,
+      "cost_basis": 507.93,
+      "unrealized_pct": 2.220446049250313e-16
     },
     {
+      "ticker": "JNJ",
+      "shares": 0.5083,
+      "price": 267.61,
+      "value": 136.02,
+      "cost_basis": 267.61,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "META",
+      "shares": 0.2096,
+      "price": 648.85,
+      "value": 136.02,
+      "cost_basis": 648.85,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "NFLX",
+      "shares": 2.0287,
+      "price": 67.05,
+      "value": 136.02,
+      "cost_basis": 67.05,
+      "unrealized_pct": 0.0
+    },
+    {
+      "ticker": "ORCL",
+      "shares": 1.0835,
+      "price": 125.54,
+      "value": 136.02,
+      "cost_basis": 125.54,
+      "unrealized_pct": 0.0
+    }
+  ],
+  "trades_this_tick": [
+    {
       "ticker": "CRM",
+      "action": "SELL",
       "shares": 0.5514,
-      "price": 241.78,
-      "value": 133.33,
-      "cost_basis": 209.06,
-      "unrealized_pct": 0.15651009279632633
+      "price": 250.29
     },
     {
       "ticker": "CSCO",
+      "action": "SELL",
       "shares": 1.231,
-      "price": 107.26,
-      "value": 132.03,
-      "cost_basis": 106.43,
-      "unrealized_pct": 0.007798553039556566
+      "price": 104.89
     },
     {
-      "ticker": "CVX",
-      "shares": 0.6375,
-      "price": 226.78,
-      "value": 144.57,
-      "cost_basis": 205.51,
-      "unrealized_pct": 0.10349861320617015
+      "ticker": "BAC",
+      "action": "SELL",
+      "shares": 2.3395,
+      "price": 51.08
     },
     {
       "ticker": "UNH",
+      "action": "SELL",
       "shares": 0.3529,
-      "price": 417.0,
-      "value": 147.14,
-      "cost_basis": 371.29,
-      "unrealized_pct": 0.12311131460583358
+      "price": 424.98
+    },
+    {
+      "ticker": "CVX",
+      "action": "SELL",
+      "shares": 0.6375,
+      "price": 226.68
+    },
+    {
+      "ticker": "NFLX",
+      "action": "BUY",
+      "shares": 2.0287,
+      "price": 67.05
+    },
+    {
+      "ticker": "ORCL",
+      "action": "BUY",
+      "shares": 1.0835,
+      "price": 125.54
+    },
+    {
+      "ticker": "META",
+      "action": "BUY",
+      "shares": 0.2096,
+      "price": 648.85
+    },
+    {
+      "ticker": "JNJ",
+      "action": "BUY",
+      "shares": 0.5083,
+      "price": 267.61
+    },
+    {
+      "ticker": "AMD",
+      "action": "BUY",
+      "shares": 0.2678,
+      "price": 507.93
     }
   ],
-  "trades_this_tick": [],
-  "last_rebalance": "2026-09-23T23:45:07.536347+00:00"
+  "last_rebalance": "2026-10-23T00:00:21.288696+00:00"
 }
