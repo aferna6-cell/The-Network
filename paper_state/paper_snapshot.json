@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-10-29T01:01:03.345619+00:00",
+  "generated_at": "2026-10-30T01:05:59.580105+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 709.3516689170915,
+  "equity": 705.4950441891195,
   "cash": 5.916952095752663,
-  "total_return": 0.4187033378341829,
-  "benchmark_equity": 522.5018604965834,
-  "benchmark_return": 0.04500372099316685,
-  "vs_benchmark": 186.8498084205081,
+  "total_return": 0.41099008837823914,
+  "benchmark_equity": 520.506055070699,
+  "benchmark_return": 0.04101211014139783,
+  "vs_benchmark": 184.9889891184206,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2678,
-      "price": 578.44,
-      "value": 154.9,
+      "price": 566.42,
+      "value": 151.69,
       "cost_basis": 507.93,
-      "unrealized_pct": 0.1388183411099957
+      "unrealized_pct": 0.11515366290630591
     },
     {
       "ticker": "JNJ",
       "shares": 0.5083,
-      "price": 271.04,
-      "value": 137.77,
+      "price": 275.2,
+      "value": 139.88,
       "cost_basis": 267.61,
-      "unrealized_pct": 0.012817159298979863
+      "unrealized_pct": 0.02836216882777176
     },
     {
       "ticker": "META",
       "shares": 0.2096,
-      "price": 612.49,
-      "value": 128.4,
+      "price": 624.52,
+      "value": 130.92,
       "cost_basis": 648.85,
-      "unrealized_pct": -0.05603760499345001
+      "unrealized_pct": -0.03749711027201974
     },
     {
       "ticker": "NFLX",
       "shares": 2.0287,
-      "price": 61.99,
-      "value": 125.76,
+      "price": 62.05,
+      "value": 125.88,
       "cost_basis": 67.05,
-      "unrealized_pct": -0.0754660700969425
+      "unrealized_pct": -0.0745712155108128
     },
     {
       "ticker": "ORCL",
       "shares": 1.0835,
-      "price": 144.54,
-      "value": 156.61,
+      "price": 139.56,
+      "value": 151.21,
       "cost_basis": 125.54,
-      "unrealized_pct": 0.15134618448303327
+      "unrealized_pct": 0.11167755297116444
     }
   ],
   "trades_this_tick": [],
