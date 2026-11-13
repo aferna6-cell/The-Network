@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-11-12T02:17:50.639288+00:00",
+  "generated_at": "2026-11-13T01:53:10.166580+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 698.3514445696251,
+  "equity": 702.3980344779177,
   "cash": 5.916952095752663,
-  "total_return": 0.3967028891392501,
-  "benchmark_equity": 514.0450578445301,
-  "benchmark_return": 0.02809011568906028,
-  "vs_benchmark": 184.30638672509497,
+  "total_return": 0.4047960689558354,
+  "benchmark_equity": 512.2251539138083,
+  "benchmark_return": 0.02445030782761659,
+  "vs_benchmark": 190.1728805641094,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2678,
-      "price": 552.9,
-      "value": 148.06,
+      "price": 585.3,
+      "value": 156.74,
       "cost_basis": 507.93,
-      "unrealized_pct": 0.08853582186521769
+      "unrealized_pct": 0.152324139153033
     },
     {
       "ticker": "JNJ",
       "shares": 0.5083,
-      "price": 280.41,
-      "value": 142.53,
+      "price": 283.52,
+      "value": 144.11,
       "cost_basis": 267.61,
-      "unrealized_pct": 0.04783079855012895
+      "unrealized_pct": 0.059452187885355334
     },
     {
       "ticker": "META",
       "shares": 0.2096,
-      "price": 628.77,
-      "value": 131.81,
+      "price": 623.61,
+      "value": 130.73,
       "cost_basis": 648.85,
-      "unrealized_pct": -0.03094706018340143
+      "unrealized_pct": -0.03889959158511214
     },
     {
       "ticker": "NFLX",
       "shares": 2.0287,
-      "price": 64.54,
-      "value": 130.93,
+      "price": 62.69,
+      "value": 127.18,
       "cost_basis": 67.05,
-      "unrealized_pct": -0.037434750186427945
+      "unrealized_pct": -0.06502609992542874
     },
     {
       "ticker": "ORCL",
       "shares": 1.0835,
-      "price": 128.38,
-      "value": 139.1,
+      "price": 127.11,
+      "value": 137.72,
       "cost_basis": 125.54,
-      "unrealized_pct": 0.02262227178588483
+      "unrealized_pct": 0.012505974191492797
     }
   ],
   "trades_this_tick": [],
