@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-11-18T02:56:21.947898+00:00",
+  "generated_at": "2026-11-19T02:37:21.837068+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 657.7971496681041,
+  "equity": 660.4649906402949,
   "cash": 5.916952095752663,
-  "total_return": 0.3155942993362082,
-  "benchmark_equity": 495.5280427575943,
-  "benchmark_return": -0.008943914484811466,
-  "vs_benchmark": 162.26910691050983,
+  "total_return": 0.3209299812805897,
+  "benchmark_equity": 494.01258372234633,
+  "benchmark_return": -0.011974832555307291,
+  "vs_benchmark": 166.45240691794857,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2678,
-      "price": 503.41,
-      "value": 134.81,
+      "price": 530.14,
+      "value": 141.97,
       "cost_basis": 507.93,
-      "unrealized_pct": -0.00889886401669504
+      "unrealized_pct": 0.043726497745752546
     },
     {
       "ticker": "JNJ",
       "shares": 0.5083,
-      "price": 278.7,
-      "value": 141.66,
+      "price": 272.7,
+      "value": 138.61,
       "cost_basis": 267.61,
-      "unrealized_pct": 0.04144090280632251
+      "unrealized_pct": 0.019020215985949607
     },
     {
       "ticker": "META",
       "shares": 0.2096,
-      "price": 618.87,
-      "value": 129.74,
+      "price": 616.38,
+      "value": 129.22,
       "cost_basis": 648.85,
-      "unrealized_pct": -0.046204823919241744
+      "unrealized_pct": -0.050042382677044084
     },
     {
       "ticker": "NFLX",
       "shares": 2.0287,
-      "price": 59.68,
-      "value": 121.07,
+      "price": 59.82,
+      "value": 121.35,
       "cost_basis": 67.05,
-      "unrealized_pct": -0.10991797166293804
+      "unrealized_pct": -0.10782997762863533
     },
     {
       "ticker": "ORCL",
       "shares": 1.0835,
-      "price": 115.0,
-      "value": 124.6,
+      "price": 113.89,
+      "value": 123.4,
       "cost_basis": 125.54,
-      "unrealized_pct": -0.08395730444479854
+      "unrealized_pct": -0.09279910785407042
     }
   ],
   "trades_this_tick": [],
