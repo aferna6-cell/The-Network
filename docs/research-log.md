@@ -37,3 +37,10 @@ entry is real data, not a forecast. Newest entries at the bottom.
 - **Sold:** CRM 0.5514@$250.29, CSCO 1.231@$104.89, BAC 2.3395@$51.08, UNH 0.3529@$424.98, CVX 0.6375@$226.68
 - **Bought:** NFLX 2.0287@$67.05, ORCL 1.0835@$125.54, META 0.2096@$648.85, JNJ 0.5083@$267.61, AMD 0.2678@$507.93
 - **Equity:** $686.03 (+37.21% since inception) · vs SPY $516.85 (+169.17)
+
+## 2026-11-24 — rebalance
+- **Last basket realized:** -8.11% (SPY -5.45%, excess -2.65%)
+- **New basket:** AMD, GOOGL, ORCL, UNH, V
+- **Sold:** NFLX 2.0287@$58.1, META 0.2096@$597.6, JNJ 0.5083@$270.05
+- **Bought:** UNH 0.3717@$336.08, GOOGL 0.4428@$282.1, ORCL 0.0154@$113.68, AMD 0.0077@$453.46, V 0.3051@$409.4
+- **Equity:** $630.40 (+26.08% since inception) · vs SPY $488.66 (+141.74)
