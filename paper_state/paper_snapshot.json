@@ -1,104 +1,55 @@
 {
-  "generated_at": "2026-11-24T05:21:11.178018+00:00",
+  "generated_at": "2026-11-25T04:16:30.467369+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 630.3972988314621,
+  "equity": 617.7890731836148,
   "cash": 5.777002435854584,
-  "total_return": 0.26079459766292423,
-  "benchmark_equity": 488.66111900412693,
-  "benchmark_return": -0.022677761991746093,
-  "vs_benchmark": 141.73617982733515,
+  "total_return": 0.23557814636722973,
+  "benchmark_equity": 486.28644881943035,
+  "benchmark_return": -0.02742710236113932,
+  "vs_benchmark": 131.5026243641845,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2755,
-      "price": 453.46,
-      "value": 124.92,
+      "price": 413.27,
+      "value": 113.85,
       "cost_basis": 506.41,
-      "unrealized_pct": -0.10455729559514926
+      "unrealized_pct": -0.1839200669311677
     },
     {
       "ticker": "GOOGL",
       "shares": 0.4428,
-      "price": 282.1,
-      "value": 124.92,
+      "price": 279.05,
+      "value": 123.57,
       "cost_basis": 282.1,
-      "unrealized_pct": 0.0
+      "unrealized_pct": -0.0108117688762851
     },
     {
       "ticker": "ORCL",
       "shares": 1.0989,
-      "price": 113.68,
-      "value": 124.92,
+      "price": 109.5,
+      "value": 120.33,
       "cost_basis": 125.37,
-      "unrealized_pct": -0.0932703118180983
+      "unrealized_pct": -0.1266106539767925
     },
     {
       "ticker": "UNH",
       "shares": 0.3717,
-      "price": 336.08,
-      "value": 124.92,
+      "price": 341.88,
+      "value": 127.08,
       "cost_basis": 336.08,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.01725779576291364
     },
     {
       "ticker": "V",
       "shares": 0.3051,
-      "price": 409.4,
-      "value": 124.92,
+      "price": 416.78,
+      "value": 127.18,
       "cost_basis": 409.4,
-      "unrealized_pct": 0.0
+      "unrealized_pct": 0.018026380068392855
     }
   ],
-  "trades_this_tick": [
-    {
-      "ticker": "NFLX",
-      "action": "SELL",
-      "shares": 2.0287,
-      "price": 58.1
-    },
-    {
-      "ticker": "META",
-      "action": "SELL",
-      "shares": 0.2096,
-      "price": 597.6
-    },
-    {
-      "ticker": "JNJ",
-      "action": "SELL",
-      "shares": 0.5083,
-      "price": 270.05
-    },
-    {
-      "ticker": "UNH",
-      "action": "BUY",
-      "shares": 0.3717,
-      "price": 336.08
-    },
-    {
-      "ticker": "GOOGL",
-      "action": "BUY",
-      "shares": 0.4428,
-      "price": 282.1
-    },
-    {
-      "ticker": "ORCL",
-      "action": "BUY",
-      "shares": 0.0154,
-      "price": 113.68
-    },
-    {
-      "ticker": "AMD",
-      "action": "BUY",
-      "shares": 0.0077,
-      "price": 453.46
-    },
-    {
-      "ticker": "V",
-      "action": "BUY",
-      "shares": 0.3051,
-      "price": 409.4
-    }
-  ],
+  "trades_this_tick": [],
   "last_rebalance": "2026-11-24T05:21:11.178018+00:00"
 }
