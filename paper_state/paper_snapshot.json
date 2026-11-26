@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-11-25T04:16:30.467369+00:00",
+  "generated_at": "2026-11-26T03:36:55.709973+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 617.7890731836148,
+  "equity": 610.9079500158442,
   "cash": 5.777002435854584,
-  "total_return": 0.23557814636722973,
-  "benchmark_equity": 486.28644881943035,
-  "benchmark_return": -0.02742710236113932,
-  "vs_benchmark": 131.5026243641845,
+  "total_return": 0.22181590003168838,
+  "benchmark_equity": 484.8792368581287,
+  "benchmark_return": -0.030241526283742548,
+  "vs_benchmark": 126.02871315771552,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2755,
-      "price": 413.27,
-      "value": 113.85,
+      "price": 406.03,
+      "value": 111.86,
       "cost_basis": 506.41,
-      "unrealized_pct": -0.1839200669311677
+      "unrealized_pct": -0.1982168189707989
     },
     {
       "ticker": "GOOGL",
       "shares": 0.4428,
-      "price": 279.05,
-      "value": 123.57,
+      "price": 273.1,
+      "value": 120.94,
       "cost_basis": 282.1,
-      "unrealized_pct": -0.0108117688762851
+      "unrealized_pct": -0.03190358029067708
     },
     {
       "ticker": "ORCL",
       "shares": 1.0989,
-      "price": 109.5,
-      "value": 120.33,
+      "price": 103.88,
+      "value": 114.15,
       "cost_basis": 125.37,
-      "unrealized_pct": -0.1266106539767925
+      "unrealized_pct": -0.17143666424757265
     },
     {
       "ticker": "UNH",
       "shares": 0.3717,
-      "price": 341.88,
-      "value": 127.08,
+      "price": 346.19,
+      "value": 128.68,
       "cost_basis": 336.08,
-      "unrealized_pct": 0.01725779576291364
+      "unrealized_pct": 0.030082123303975195
     },
     {
       "ticker": "V",
       "shares": 0.3051,
-      "price": 416.78,
-      "value": 127.18,
+      "price": 424.39,
+      "value": 129.5,
       "cost_basis": 409.4,
-      "unrealized_pct": 0.018026380068392855
+      "unrealized_pct": 0.036614557889594446
     }
   ],
   "trades_this_tick": [],
