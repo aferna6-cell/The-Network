@@ -1,53 +1,53 @@
 {
-  "generated_at": "2026-11-27T03:39:41.388360+00:00",
+  "generated_at": "2026-11-28T03:20:34.502004+00:00",
   "inception_date": "2026-06-24",
   "starting_equity": 500.0,
-  "equity": 610.9079500158442,
+  "equity": 623.9203096102426,
   "cash": 5.777002435854584,
-  "total_return": 0.22181590003168838,
-  "benchmark_equity": 484.8792368581287,
-  "benchmark_return": -0.030241526283742548,
-  "vs_benchmark": 126.02871315771552,
+  "total_return": 0.24784061922048517,
+  "benchmark_equity": 492.7406806034775,
+  "benchmark_return": -0.014518638793045047,
+  "vs_benchmark": 131.17962900676514,
   "holdings": [
     {
       "ticker": "AMD",
       "shares": 0.2755,
-      "price": 406.03,
-      "value": 111.86,
+      "price": 424.54,
+      "value": 116.96,
       "cost_basis": 506.41,
-      "unrealized_pct": -0.1982168189707989
+      "unrealized_pct": -0.16166531617334412
     },
     {
       "ticker": "GOOGL",
       "shares": 0.4428,
-      "price": 273.1,
-      "value": 120.94,
+      "price": 274.96,
+      "value": 121.76,
       "cost_basis": 282.1,
-      "unrealized_pct": -0.03190358029067708
+      "unrealized_pct": -0.02531017369727062
     },
     {
       "ticker": "ORCL",
       "shares": 1.0989,
-      "price": 103.88,
-      "value": 114.15,
+      "price": 107.13,
+      "value": 117.73,
       "cost_basis": 125.37,
-      "unrealized_pct": -0.17143666424757265
+      "unrealized_pct": -0.1455141494112675
     },
     {
       "ticker": "UNH",
       "shares": 0.3717,
-      "price": 346.19,
-      "value": 128.68,
+      "price": 351.41,
+      "value": 130.62,
       "cost_basis": 336.08,
-      "unrealized_pct": 0.030082123303975195
+      "unrealized_pct": 0.04561413949059756
     },
     {
       "ticker": "V",
       "shares": 0.3051,
-      "price": 424.39,
-      "value": 129.5,
+      "price": 429.56,
+      "value": 131.08,
       "cost_basis": 409.4,
-      "unrealized_pct": 0.036614557889594446
+      "unrealized_pct": 0.04924279433317058
     }
   ],
   "trades_this_tick": [],
